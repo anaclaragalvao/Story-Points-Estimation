@@ -1,0 +1,5 @@
+dataset,issues,n,mediana_palavras,empty_description,under_15_words,user_story_format,has_so_that,acceptance_criteria_text
+agile,todas,23313,45.0,9.6,14.1,1.8,3.4,0.4
+neo,todas,20474,39.0,8.0,15.7,1.9,2.6,19.7
+agile,avaliação,1166,43.0,10.6,15.4,2.1,3.9,0.3
+neo,avaliação,1022,39.0,8.4,17.2,1.8,2.2,19.3

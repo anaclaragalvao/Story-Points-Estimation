@@ -1,0 +1,12 @@
+family,model,train_seconds,infer_seconds,runs
+ML,KNN,0.002,0.1552,1
+ML,KNN+repo,0.0025,0.54515,2
+ML,KNN_repoonly,0.014,0.0194,2
+ML,LinearRegression_repoonly,0.006,0.00025,2
+ML,RandomForest,145.387,0.4275,1
+ML,RandomForest+repo,144.351,0.5031,2
+ML,RandomForest_repoonly,3.362,0.1525,2
+ML,SVR_repoonly,9.0165,0.5716,2
+ML,XGBoost,181.395,0.009,1
+ML,XGBoost+repo,197.2825,0.01865,2
+ML,XGBoost_repoonly,0.549,0.0078,2

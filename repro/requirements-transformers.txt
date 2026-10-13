@@ -1,0 +1,4 @@
+# Etapa 20 (Transformers) — precisa de GPU; no Colab torch e transformers já vêm instalados
+-r requirements.txt
+torch>=2.1
+transformers>=4.40

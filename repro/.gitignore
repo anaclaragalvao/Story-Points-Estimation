@@ -1,0 +1,11 @@
+# Dados brutos e processados: regenerados por 01_download_data.py e 02_prepare_data.py
+data/raw/
+data/processed/
+# Checkpoints dos Transformers (vários GB)
+results/checkpoints/
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# Chaves de API nunca vão para o git
+.env

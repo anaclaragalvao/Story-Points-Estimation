@@ -1,0 +1,49 @@
+{
+  "_comentario": "Perguntas enviadas ao juiz (Jev ou Laya) para cada issue. Pode editar: mude textos, remova ou acrescente perguntas. Tipos: choice (escolhe uma opção), score (nível ordenado, de 0 ao último), noul (probabilidade 0-1 de a afirmação ser verdadeira). Os textos ficam em inglês porque as issues estão em inglês. Base: Quality User Story framework (Lucassen et al.) e INVEST, citados em Iqbal et al. (2024) e Quattrocchi et al. (2026).",
+  "issue_type": {
+    "type": "choice",
+    "instructions": "What kind of work item is this?",
+    "criteria": {
+      "user_story": "Describes new functionality from the point of view of a user or customer",
+      "bug": "Reports a defect, error or unexpected behavior that must be fixed",
+      "technical_task": "Internal engineering work such as refactoring, infrastructure, build, tests or dependency updates",
+      "improvement": "Changes or enhances functionality that already exists",
+      "other": "A question, discussion, documentation work, or something that fits none of the above"
+    }
+  },
+  "goal_clarity": {
+    "type": "score",
+    "instructions": "How clearly does the work item state what has to be done?",
+    "criteria": [
+      "Unclear: a developer could not tell what change is expected",
+      "Partially clear: the goal can be understood, but only by making assumptions",
+      "Clear: the expected change is stated explicitly"
+    ]
+  },
+  "estimability": {
+    "type": "score",
+    "instructions": "Does the work item contain enough information for a development team to estimate its effort?",
+    "criteria": [
+      "Insufficient: essential information to estimate the work is missing",
+      "Partial: some useful information, but important details are missing",
+      "Sufficient: enough detail to estimate the effort with reasonable confidence"
+    ]
+  },
+  "scope_size": {
+    "type": "score",
+    "instructions": "How large and well-bounded is the scope of work described?",
+    "criteria": [
+      "Small and well-bounded: a single, focused change",
+      "Medium: several related changes",
+      "Large or open-ended: many features or an epic-sized effort"
+    ]
+  },
+  "has_acceptance_criteria": {
+    "type": "noul",
+    "instructions": "The work item states acceptance criteria or explains how to verify that it is done"
+  },
+  "is_ambiguous": {
+    "type": "noul",
+    "instructions": "The work item uses vague or ambiguous wording that different developers could interpret in different ways"
+  }
+}
