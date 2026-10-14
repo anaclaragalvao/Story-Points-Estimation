@@ -32,6 +32,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from see import config  # noqa: E402
 from see.io import load_merged  # noqa: E402
+from see.quality import add_quality_scores, summarize  # noqa: E402
 
 OUT = config.RESULTS / "quality"
 LABEL_FILE = OUT / "rotulagem_humana.xlsx"
@@ -158,7 +159,7 @@ def load_judge():
         dataset, engine = f.stem.split("__", 1)
         d = pd.read_csv(f, dtype={"issue_id": str})
         d["dataset"], d["engine"] = dataset, engine
-        frames.append(d)
+        frames.append(add_quality_scores(d))
     return pd.concat(frames, ignore_index=True) if frames else None
 
 
@@ -219,7 +220,8 @@ def error_by_quality(judge, signals) -> pd.DataFrame:
         if judge is not None:
             jd = judge[judge.dataset == dataset]
             for engine, j in jd.groupby("engine"):
-                cols = ["issue_id"] + [c for c in SCORE_Q if c in j] + [c for c in ["issue_type"] if c in j]
+                cols = (["issue_id"] + [c for c in SCORE_Q if c in j]
+                        + [c for c in ["issue_type", "faixa"] if c in j])
                 jj = j[cols].copy()
                 for c in SCORE_Q:
                     if c in jj:
@@ -248,6 +250,16 @@ def cmd_report(_args):
     judge = load_judge()
 
     if judge is not None:
+        print("=== (0) Nota geral de qualidade (0–100) ===")
+        resumo = pd.DataFrame([{"dataset": ds, "engine": eng, **summarize(g)}
+                               for (ds, eng), g in judge.groupby(["dataset", "engine"])])
+        resumo.to_csv(OUT / "nota_geral_resumo.csv", index=False)
+        print(resumo.to_string(index=False))
+        print("indice = média de clareza, dá-para-estimar, critérios de aceitação e (1 − ambiguidade); "
+              "nota_juiz = avaliação holística do juiz. Faixas: ruim < 40 ≤ regular < 70 ≤ boa.")
+        if "nota_geral_juiz" in judge:
+            print("spearman_indice_x_nota_juiz perto de 1 = as duas notas concordam; perto de 0 = não.")
+        print()
         print("=== (1) Respostas do juiz ===")
         for (ds, eng), g in judge.groupby(["dataset", "engine"]):
             print(f"\n[{ds} / {eng}] {len(g)} issues, latência mediana {g.latency_s.median():.3f}s")
@@ -290,13 +302,80 @@ def cmd_report(_args):
         print(f"\nTabela completa: {(OUT / 'erro_por_qualidade.csv').relative_to(config.ROOT)}")
 
 
+# ---------------------------------------------------------------- inspect
+def describe_answers(r) -> list:
+    lines = []
+    if "indice_qualidade" in r and pd.notna(r.get("indice_qualidade")):
+        extra = f" | nota geral do juiz: {r['nota_geral_juiz']:.0f}/100" if pd.notna(r.get("nota_geral_juiz", np.nan)) else ""
+        lines.append(f"ÍNDICE DE QUALIDADE: {r['indice_qualidade']:.0f}/100 ({r.get('faixa')}){extra}")
+    if "issue_type" in r and pd.notna(r.get("issue_type")):
+        probs = {k[len("issue_type_p_"):]: r[k] for k in r.index if k.startswith("issue_type_p_") and pd.notna(r[k])}
+        top = ", ".join(f"{k} {v:.0%}" for k, v in sorted(probs.items(), key=lambda kv: -kv[1])[:3])
+        lines.append(f"tipo: {r.issue_type} (confiança {r.issue_type_conf:.2f}; {top})")
+    names = {"goal_clarity": "clareza", "estimability": "dá para estimar", "scope_size": "escopo (0 pequeno, 2 grande)"}
+    for q, label in names.items():
+        if q in r and pd.notna(r.get(q)):
+            lines.append(f"{label}: {r[q]:.2f} de 2 (confiança {r.get(q + '_conf', float('nan')):.2f})")
+    for q, label in {"has_acceptance_criteria": "tem critérios de aceitação", "is_ambiguous": "é ambígua"}.items():
+        if q in r and pd.notna(r.get(q)):
+            lines.append(f"{label}: {r[q]:.0%} -> {'SIM' if r[q] >= 0.5 else 'não'}")
+    return lines
+
+
+def cmd_inspect(args):
+    path = OUT / f"{args.dataset}__{args.engine}.csv"
+    if not path.exists():
+        sys.exit(f"{path.relative_to(config.ROOT)} não existe. Rode antes o 50_quality_judge.py.")
+    j = add_quality_scores(pd.read_csv(path, dtype={"issue_id": str}))
+    data = load_merged(args.dataset).set_index("issue_id")
+    j = j.head(args.n) if args.n else j
+    rows = []
+    for _, r in j.iterrows():
+        d = data.loc[r.issue_id]
+        desc = str(d.description or "").replace("\n", " ")
+        print("=" * 100)
+        print(f"{r.issue_id} | projeto {d.project} | story points {d.sp:g}")
+        print(f"TÍTULO: {d.title}")
+        print(f"DESCRIÇÃO: {desc[:600]}{' ...' if len(desc) > 600 else ''}")
+        print("-- juiz --")
+        answers = describe_answers(r)
+        for line in answers:
+            print("  " + line)
+        rows.append({"issue_id": r.issue_id, "story_points": d.sp, "titulo": d.title, "descricao": desc[:3000],
+                     "resposta_do_juiz": "\n".join(answers), "concorda? (s/n)": None, "comentario": None})
+    if args.xlsx:
+        from openpyxl.styles import Alignment, Font, PatternFill
+        out = OUT / f"conferencia_{args.dataset}_{args.engine}.xlsx"
+        if out.exists() and not args.force:
+            sys.exit(f"{out.relative_to(config.ROOT)} já existe (pode ter marcações suas). Use --force para sobrescrever.")
+        df = pd.DataFrame(rows)
+        with pd.ExcelWriter(out, engine="openpyxl") as w:
+            df.to_excel(w, index=False, sheet_name="conferir")
+            ws = w.sheets["conferir"]
+            for col, width in zip("ABCDEFG", [16, 8, 40, 80, 55, 12, 30]):
+                ws.column_dimensions[col].width = width
+            for row in ws.iter_rows(min_row=2):
+                for cell in row:
+                    cell.alignment = Alignment(wrap_text=True, vertical="top")
+                row[5].fill = PatternFill("solid", fgColor="FFFF00")
+            for c in ws[1]:
+                c.font = Font(name="Arial", bold=True)
+        print(f"\nPlanilha para conferir: {out.relative_to(config.ROOT)}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("comando", choices=["signals", "sample", "report"])
-    ap.add_argument("--n", type=int, default=100, help="(sample) total de issues, metade de cada dataset")
+    ap.add_argument("comando", choices=["signals", "sample", "report", "inspect"])
+    ap.add_argument("--dataset", default="agile", choices=config.DATASETS, help="(inspect)")
+    ap.add_argument("--engine", default="jev", help="(inspect) jev ou laya")
+    ap.add_argument("--xlsx", action="store_true", help="(inspect) gerar planilha de conferência")
+    ap.add_argument("--n", type=int, default=None,
+                    help="(sample) total de issues, metade de cada dataset (padrão 100); (inspect) quantas mostrar (padrão todas)")
     ap.add_argument("--force", action="store_true", help="(sample) sobrescrever a planilha de rótulos")
     args = ap.parse_args()
-    {"signals": cmd_signals, "sample": cmd_sample, "report": cmd_report}[args.comando](args)
+    if args.comando == "sample" and args.n is None:
+        args.n = 100
+    {"signals": cmd_signals, "sample": cmd_sample, "report": cmd_report, "inspect": cmd_inspect}[args.comando](args)
 
 
 if __name__ == "__main__":

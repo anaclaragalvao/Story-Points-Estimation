@@ -45,5 +45,16 @@
   "is_ambiguous": {
     "type": "noul",
     "instructions": "The work item uses vague or ambiguous wording that different developers could interpret in different ways"
+  },
+  "overall_quality": {
+    "type": "score",
+    "instructions": "Overall, how good is this work item as input for a development team that must estimate its effort?",
+    "criteria": [
+      "Very poor: almost no usable information",
+      "Poor: the main goal is hard to understand and key details are missing",
+      "Fair: understandable, but with important gaps or vague parts",
+      "Good: clear, with only minor gaps",
+      "Excellent: clear, complete and unambiguous"
+    ]
   }
 }

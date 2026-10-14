@@ -23,7 +23,9 @@ que são as mesmas em que medimos o erro dos modelos. `--subset all` avalia o da
 
 As perguntas ficam em repro/quality_criteria.json (editável). Retomável como o script de
 LLM: as respostas vão para results/quality_raw/*.jsonl na hora; se parar, rode de novo.
-Saída final: results/quality/{dataset}__{engine}.csv, uma linha por issue.
+Saída final: results/quality/{dataset}__{engine}.csv, uma linha por issue, com as respostas
+e duas notas gerais (see/quality.py): indice_qualidade (0–100, composto) e nota_geral_juiz
+(0–100, avaliação holística do juiz), além da faixa ruim / regular / boa.
 
 ATENÇÃO (do próprio artigo do Jev): juízes desse tipo são bons em decisões que dá para
 "ler" no texto e fracos em julgar prosa sem referência. Antes de usar os números no TCC,
@@ -43,6 +45,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from see import config  # noqa: E402
 from see.io import load_merged  # noqa: E402
 from see.prompts import truncate  # noqa: E402
+from see.quality import add_quality_scores  # noqa: E402
 from see.text import clean_light  # noqa: E402
 
 ENGINES = {
@@ -124,19 +127,25 @@ def flatten(answers: dict, questions: dict) -> dict:
     return out
 
 
-def read_done(path: Path) -> dict:
+def read_done(path: Path, questions: dict = None) -> dict:
+    """issue_id -> registro mais recente sem erro. Se as perguntas mudaram (ex.: você
+    acrescentou uma no quality_criteria.json), registros sem alguma delas contam como
+    não feitos e a issue é perguntada de novo."""
     done = {}
     if path.exists():
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 rec = json.loads(line)
-                if not rec.get("error"):
-                    done[rec["issue_id"]] = rec
+                if rec.get("error"):
+                    continue
+                if questions and not set(questions) <= set(rec.get("answers", {})):
+                    continue
+                done[rec["issue_id"]] = rec
     return done
 
 
 def export(df_sel, raw_path, questions, dataset, engine):
-    done = read_done(raw_path)
+    done = read_done(raw_path, questions)
     rows = []
     for r in df_sel.itertuples():
         rec = done.get(r.issue_id)
@@ -152,7 +161,7 @@ def export(df_sel, raw_path, questions, dataset, engine):
         return
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     path = OUT_DIR / f"{dataset}__{engine}.csv"
-    pd.DataFrame(rows).to_csv(path, index=False)
+    add_quality_scores(pd.DataFrame(rows)).to_csv(path, index=False)
     missing = len(df_sel) - len(rows)
     print(f"  salvo: {path.relative_to(config.ROOT)} ({len(rows)} issues" + (f", faltam {missing})" if missing else ")"))
 
@@ -197,7 +206,7 @@ def main():
         if judge is None:
             judge = Judge(args.engine, args.base_url, args.model)
 
-        done = read_done(raw_path)
+        done = read_done(raw_path, questions)
         todo = sel[~sel.issue_id.isin(done)]
         print(f"== {dataset} ({args.engine}): {len(done)} prontas, {len(todo)} a fazer", flush=True)
         raw_path.parent.mkdir(parents=True, exist_ok=True)

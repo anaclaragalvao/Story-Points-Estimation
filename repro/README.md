@@ -154,6 +154,17 @@ erro dos modelos. `--subset all` julga o dataset inteiro. O custo do Jev é desp
 pelo preço publicado no artigo (~US$ 0,042 por milhão de tokens de entrada), as 2.188 issues
 dariam centavos de dólar. Mas exige conta na TypeSafe; confira o preço atual no site.
 
+**Notas gerais.** Cada issue recebe duas notas de 0 a 100 (`see/quality.py`):
+- `indice_qualidade`, composto e transparente: média de clareza, dá para estimar,
+  critérios de aceitação e ausência de ambiguidade. Escopo e tipo não entram, porque
+  descrevem a issue e não a qualidade do texto.
+- `nota_geral_juiz`, avaliação holística do próprio juiz (pergunta `overall_quality`, 0 a 4).
+
+O `report` mostra, por dataset, média, mediana e % de issues ruins (< 40), regulares
+(40–70) e boas (≥ 70), além da correlação entre as duas notas. O componente "critérios de
+aceitação" puxa o índice do Agile para baixo, porque quase nenhuma issue de lá os tem
+(0,4%); isso é uma característica real dos dados, mas aparece no índice.
+
 **3. Validação humana** (obrigatória antes de usar no TCC). O próprio artigo do Jev
 mostra que esse tipo de juiz é bom quando a resposta "está escrita" no texto e fica perto
 do acaso ao julgar a qualidade de prosa sem referência. Perguntas como "tem critérios de
