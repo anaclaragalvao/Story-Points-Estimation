@@ -86,7 +86,7 @@ def perturb(text: str, rng, args) -> str:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.DATASETS)
+    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.ALL_DATASETS)
     ap.add_argument("--seeds", nargs="+", type=int, default=config.ROBUSTNESS_SEEDS)
     ap.add_argument("--max-rate", type=float, default=0.10)
     ap.add_argument("--char-p", type=float, default=0.05)

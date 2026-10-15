@@ -19,7 +19,10 @@ Apache 2.0) é um modelo aberto que expõe a MESMA API e roda localmente, de gra
     python repro/50_quality_judge.py --engine laya --dry-run     # mostra a requisição e sai
 
 Por padrão avalia só as issues de avaliação (`within_eval`: 1.166 Agile + 1.022 NEO),
-que são as mesmas em que medimos o erro dos modelos. `--subset all` avalia o dataset inteiro.
+que são as mesmas em que medimos o erro dos modelos. `--subset test` avalia o test set inteiro
+e `--subset all` o dataset inteiro. Funciona também com as versões limpas (agile_limpo,
+neo_limpo): issues já julgadas em qualquer rodada são reaproveitadas, sem pagar de novo.
+Saída: results/quality/{dataset}{_test|_all}__{engine}.csv
 
 As perguntas ficam em repro/quality_criteria.json (editável). Retomável como o script de
 LLM: as respostas vão para results/quality_raw/*.jsonl na hora; se parar, rode de novo.
@@ -144,8 +147,17 @@ def read_done(path: Path, questions: dict = None) -> dict:
     return done
 
 
-def export(df_sel, raw_path, questions, dataset, engine):
-    done = read_done(raw_path, questions)
+def read_done_all(raw_dir: Path, engine: str, questions: dict) -> dict:
+    """Junta as respostas de TODOS os arquivos do juiz para o dataset-base (eval, test, all):
+    uma issue já julgada não é paga de novo, nem quando muda o subconjunto ou se usa a versão limpa."""
+    done = {}
+    for f in sorted(raw_dir.glob(f"{engine}*.jsonl")):
+        done.update(read_done(f, questions))
+    return done
+
+
+def export(df_sel, raw_path, questions, dataset, engine, done=None):
+    done = done if done is not None else read_done(raw_path, questions)
     rows = []
     for r in df_sel.itertuples():
         rec = done.get(r.issue_id)
@@ -169,9 +181,9 @@ def export(df_sel, raw_path, questions, dataset, engine):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--engine", required=True, choices=list(ENGINES))
-    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.DATASETS)
-    ap.add_argument("--subset", default="eval", choices=["eval", "all"],
-                    help="eval = issues de avaliação (padrão); all = dataset inteiro")
+    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.ALL_DATASETS)
+    ap.add_argument("--subset", default="eval", choices=["eval", "test", "all"],
+                    help="eval = issues de avaliação (padrão); test = test set inteiro do within; all = dataset inteiro")
     ap.add_argument("--criteria", default=str(CRITERIA_FILE))
     ap.add_argument("--base-url", help="padrão: API do Jev ou http://localhost:8000 (Laya)")
     ap.add_argument("--model", help="padrão: jev-latest (Jev) ou typed-decisions (Laya)")
@@ -188,11 +200,12 @@ def main():
     judge = None
     for dataset in args.dataset:
         df = load_merged(dataset)
-        sel = df if args.subset == "all" else df[df.within_eval == 1]
+        sel = {"all": df, "test": df[df.within == "test"], "eval": df[df.within_eval == 1]}[args.subset]
         if args.limit:
             sel = sel.head(args.limit)
-        suffix = "" if args.subset == "eval" else "_all"
-        raw_path = RAW_DIR / dataset / f"{args.engine}{suffix}.jsonl"
+        suffix = "" if args.subset == "eval" else f"_{args.subset}"
+        raw_dir = RAW_DIR / config.base_dataset(dataset)        # cache compartilhado: agile e agile_limpo
+        raw_path = raw_dir / f"{args.engine}{suffix}.jsonl"
 
         if args.dry_run:
             row = next(sel.itertuples())
@@ -201,12 +214,13 @@ def main():
             print(json.dumps(body, indent=2, ensure_ascii=False))
             return
         if args.export_only:
-            export(sel, raw_path, questions, dataset + suffix, args.engine)
+            export(sel, raw_path, questions, dataset + suffix, args.engine,
+                   read_done_all(raw_dir, args.engine, questions))
             continue
         if judge is None:
             judge = Judge(args.engine, args.base_url, args.model)
 
-        done = read_done(raw_path, questions)
+        done = read_done_all(raw_dir, args.engine, questions)
         todo = sel[~sel.issue_id.isin(done)]
         print(f"== {dataset} ({args.engine}): {len(done)} prontas, {len(todo)} a fazer", flush=True)
         raw_path.parent.mkdir(parents=True, exist_ok=True)
@@ -234,7 +248,7 @@ def main():
                 f.flush()
                 if n % 50 == 0 or n == len(todo):
                     print(f"    {n}/{len(todo)}", flush=True)
-        export(sel, raw_path, questions, dataset + suffix, args.engine)
+        export(sel, raw_path, questions, dataset + suffix, args.engine, read_done_all(raw_dir, args.engine, questions))
 
 
 if __name__ == "__main__":

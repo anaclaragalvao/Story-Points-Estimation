@@ -183,7 +183,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--provider", required=True, choices=["ollama", *PRESETS, "openai_compat"])
     ap.add_argument("--model", required=True, help="nome do modelo no provedor (ex.: llama3.2:3b)")
-    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.DATASETS)
+    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.ALL_DATASETS)
     ap.add_argument("--protocol", nargs="+", default=["within"], choices=list(PROTOCOL_COLUMN))
     ap.add_argument("--template", nargs="+", default=None,
                     help="ZS1..ZS10 (zero-shot) ou FS1..FS3 (few-shot). Padrão: ZS1, ou FS1 no protocolo fewshot")

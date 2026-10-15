@@ -37,7 +37,8 @@ def emit(df, pr_mask, preds, dataset, protocol, name, fold_col=None):
 
 
 def main():
-    for dataset in config.DATASETS:
+    for dataset in [d for d in config.ALL_DATASETS
+                    if (config.SPLITS / f"{d}_splits.csv").exists() and (config.DATA_PROCESSED / f"{d}.csv").exists()]:
         df = load_merged(dataset)
 
         # ---- within ----

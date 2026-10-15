@@ -65,6 +65,25 @@ OURS_NAME = {"SVR": "SVR", "Random Forest": "RandomForest", "XGBoost": "XGBoost"
              "Linear Regression": "LinearRegression"}
 
 
+import re as _re
+# LLMs do artigo -> padrão do nome do modelo na reprodução (30_run_llm.py grava "<modelo>__ZS1")
+LLM_PATTERNS = {"LLaMA-3": r"^llama-?3", "Gemini-1.5": r"gemini", "GPT-4-Turbo": r"gpt-?4", "DeepSeek-V3": r"deepseek"}
+USADOS = set()
+
+
+def match_model(dataset, name, protocol="within"):
+    """Nome do arquivo de predições que corresponde ao modelo do artigo (ou None)."""
+    fam = FAMILY[name]
+    if fam == "ML":
+        return OURS_NAME.get(name)
+    disp = m[(m.dataset == dataset) & (m.protocol == protocol)]
+    if fam == "Transformer":
+        return name if name in set(disp.model) else None
+    cands = sorted((x for x in disp.model.unique()
+                    if x.endswith("__ZS1") and _re.search(LLM_PATTERNS[name], x.lower())), key=len)
+    return cands[0] if cands else None
+
+
 def ours(dataset, protocol, model):
     r = m[(m.dataset == dataset) & (m.protocol == protocol) & (m.model == model)]
     if r.empty:
@@ -73,8 +92,13 @@ def ours(dataset, protocol, model):
     return (r.MAE, r.MdAE, r.RMSE, r.PRED25, int(r.n))
 
 
-def status(dataset, name, art, code):
+def status(dataset, name, art, code, achado=None):
     fam = FAMILY[name]
+    if fam == "LLM" and achado:
+        return (f"Reproduzido com '{achado.replace('__ZS1', '')}' (zero-shot, prompt ZS1). O artigo não informa a "
+                "versão/tamanho exato do modelo, então é um substituto, não o mesmo modelo.")
+    if fam == "Transformer" and achado:
+        return "Reproduzido (20_run_transformers.py, protocolo do artigo)."
     if fam == "LLM":
         return "Pendente: rodar 30_run_llm.py (os modelos exatos do artigo não são gratuitos; usaremos equivalentes abertos)"
     if fam == "Transformer":
@@ -178,7 +202,10 @@ def comparison_sheet(wb, dataset, title, with_code):
             c = ws.cell(row=row, column=c_art + i, value=v)
             c.font = BLUE
             c.number_format = "0.0%" if i == 3 else "0.000"
-        o = ours(dataset, "within", OURS_NAME.get(name, "∅"))
+        achado = match_model(dataset, name)
+        if achado:
+            USADOS.add((dataset, achado))
+        o = ours(dataset, "within", achado or "∅")
         if o:
             for i, v in enumerate(o):
                 c = ws.cell(row=row, column=c_ours + i, value=float(v) if i < 4 else v)
@@ -198,13 +225,33 @@ def comparison_sheet(wb, dataset, title, with_code):
             Cm = f"{get_column_letter(c_code)}{row}"
             ws.cell(row=row, column=c_diff + 2, value=f'=IF({Cm}="","",{Cm}-{A})').number_format = "+0.000;-0.000;0.000"
             ws.cell(row=row, column=c_diff + 3, value=f'=IF({Cm}="","",({Cm}-{A})/{A})').number_format = "+0.0%;-0.0%;0.0%"
-        st = ws.cell(row=row, column=c_status, value=status(dataset, name, o, code))
+        st = ws.cell(row=row, column=c_status, value=status(dataset, name, o, code, achado if fam != "ML" else None))
         st.alignment = Alignment(vertical="center", wrap_text=True)
         ws.row_dimensions[row].height = 14 * (len(st.value) // 60 + 1)
-        if fam != "ML":
+        if fam != "ML" and not o:
             style_range(ws, row, 3, c_status - 1, fill=FAM_FILL, border=True)
         row += 1
     last_data = row - 1
+
+    # LLMs rodados na reprodução sem par no artigo (ex.: gpt-oss, qwen)
+    extras = m[(m.dataset == dataset) & (m.protocol == "within") & (m.family == "LLM")
+               & m.model.str.endswith("__ZS1") & ~m.model.map(lambda x: (dataset, x) in USADOS)]
+    if len(extras):
+        row += 1
+        ws.cell(row=row, column=1, value="LLMs extras rodados na reprodução (sem par no artigo) — zero-shot ZS1").font = BOLD
+        row += 1
+        for r_ in extras.itertuples():
+            ws.cell(row=row, column=1, value="LLM").font = BOLD
+            ws.cell(row=row, column=2, value=r_.model.replace("__ZS1", ""))
+            style_range(ws, row, 1, c_ours + 4, font=F())
+            ws.cell(row=row, column=1).font = BOLD
+            for i in range(4):
+                ws.cell(row=row, column=c_art + i, value="—").alignment = CENTER
+            for i, v in enumerate((r_.MAE, r_.MdAE, r_.RMSE, r_.PRED25, int(r_.n))):
+                c = ws.cell(row=row, column=c_ours + i, value=float(v) if i < 4 else v)
+                c.font = BLUE
+                c.number_format = "0.0%" if i == 3 else ("0" if i == 4 else "0.000")
+            row += 1
 
     # Baselines (não reportados no artigo)
     row += 1
@@ -457,7 +504,8 @@ def readme_sheet(wb):
         ("Texto azul", "Valor copiado: do artigo ou das métricas calculadas pela reprodução."),
         ("Texto preto", "Fórmula (diferenças e médias), recalcula sozinha."),
         ("—", "Não se aplica / não reportado."),
-        ("Linhas cinza", "Transformers e LLMs: ainda não rodados na reprodução (Colab e Ollama)."),
+        ("Linhas cinza", "Modelos ainda não rodados na reprodução. Os LLMs são preenchidos automaticamente quando houver "
+                     "predições '<modelo>__ZS1' (ex.: llama3__ZS1 entra na linha LLaMA-3)."),
         ("", ""),
         ("Principais achados", ""),
         ("1", "Executando o código original, KNN e Regressão Linear reproduzem a Tabela 14 nas três casas decimais; "
