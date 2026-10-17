@@ -18,3 +18,8 @@ timestamp,machine,dataset,protocol,family,model,n_train,n_pred,train_seconds,inf
 2026-10-12T18:36:38,vm,neo,cross,ML,KNN+repo,15376,425,0.002,0.1806,fold=all
 2026-10-12T18:38:56,vm,neo,cross,ML,RandomForest+repo,15376,425,137.844,0.254,fold=all
 2026-10-12T18:42:04,vm,neo,cross,ML,XGBoost+repo,15376,425,188.004,0.0105,fold=all
+2026-10-14T18:32:34,FELIPE-PC,agile_limpo,within,ML,KNN,16716,2078,0.003,0.574,fold=all
+2026-10-14T18:43:02,FELIPE-PC,agile_limpo,within,ML,KNN,16716,2078,0.005,0.6678,fold=all
+2026-10-14T18:45:52,FELIPE-PC,agile_limpo,within,ML,XGBoost,16716,2078,169.263,0.0718,fold=all
+2026-10-14T18:45:54,FELIPE-PC,neo_limpo,within,ML,KNN,11618,1437,0.004,0.3416,fold=all
+2026-10-14T18:48:46,FELIPE-PC,neo_limpo,within,ML,XGBoost,11618,1437,171.499,0.067,fold=all

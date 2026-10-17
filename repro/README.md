@@ -108,6 +108,40 @@ responsáveis, tempo gasto). Ficaram de fora: quase todos são registrados *depo
 estimativa (comentários, merge requests, data de fechamento) e o tempo gasto real só
 existe em 834 das 40.027 issues (2%).
 
+## Extensão: versões limpas (agile_limpo, neo_limpo)
+
+Ao analisar a qualidade por projeto, encontramos problemas nos próprios dados:
+
+- **NEO, 4 projetos cujo "story point" não é estimativa do time** (3.954 issues, 19%):
+  - KiCad (15502567) e Duplicity (12450835) foram migrados do Launchpad: SP mínimo 4, com 64% e 53% das issues valendo exatamente 6, o que indica um peso padrão da migração;
+  - Lazarus (28419588) e FPC Source (28644964) têm pesos de 100 a 300.
+- **Agile: o projeto GHS (68 issues) é cópia exata de issues do JSW.** Isso explica os 17 códigos contra os 16 projetos declarados.
+- **Duplicatas:** 129 grupos no Agile e 137 no NEO, alguns com SP diferente; **148 issues com SP = 0** no NEO.
+- **Pré-processamento:** remover blocos de código, como o artigo descreve, apaga ~85% do texto das issues migradas do Launchpad, porque o relato original fica dentro de ```. Na versão limpa esses projetos saem de qualquer forma.
+
+`05_clean_data.py` gera as versões limpas com os **mesmos splits** (cada issue continua no mesmo train/val/test). As originais ficam intactas para a reprodução.
+
+| Regra | Agile | NEO |
+|---|---|---|
+| Projeto com SP inválido | 0 | −3.954 |
+| SP = 0 | 0 | −148 |
+| Duplicata com SP conflitante (grupo inteiro) | −67 | −39 |
+| Duplicata idêntica (mantém uma) | −141 | −136 |
+| Sem descrição (vazia, só URL ou só markup) | −2.219 | −1.684 |
+| **Issues na versão limpa** | **20.886 (89,6%)** | **14.513 (70,9%)** |
+| Test set / avaliação | 2.078 / 1.031 | 1.437 / 716 |
+| SP média, mediana e desvio | 6,26 / 4 / 9,95 | 3,01 / 2 / 4,29 (antes 5,99 / 3 / 17,15) |
+
+```bash
+python repro/05_clean_data.py
+python repro/50_quality_judge.py --engine jev --dataset agile_limpo neo_limpo --subset test   # reaproveita o já julgado
+python repro/12_run_baselines.py
+python repro/10_run_ml.py --dataset agile_limpo neo_limpo
+python repro/90_evaluate.py
+```
+
+O log com cada issue removida e a regra que a removeu fica em `data/processed/limpeza_log.csv`.
+
 ## Extensão: qualidade da entrada (Jev / Laya)
 
 Pergunta: as issues têm qualidade suficiente para alguém, humano ou modelo, estimar
@@ -242,6 +276,7 @@ cada uma pode rodar num computador diferente.
 | 1. Baixar dados | `01_download_data.py` | qualquer um | 1 min |
 | 2. Preparar | `02_prepare_data.py` | qualquer um | 1 min |
 | 2b. Características dos repositórios (extensão, só NEO) | `04_repo_features.py` | qualquer um | segundos |
+| 2c. Versões limpas (extensão) | `05_clean_data.py` | qualquer um | segundos |
 | 3. Splits | `03_make_splits.py` | **já feito** (versionado em `data/splits/`) | — |
 | 4. Textos perturbados | `40_perturb_texts.py` | **já feito** (versionado em `data/perturbed/`) | — |
 | Cartão do projeto (extensão) | `08_project_cards.py` | PC com o RAISE (Docker) e o Ollama | minutos |

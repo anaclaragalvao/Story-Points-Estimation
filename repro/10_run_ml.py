@@ -162,7 +162,7 @@ def run_perturb(dataset: str, models: list, svd: int):
 
 
 def run(dataset: str, protocol: str, models: list, svd: int, lopo_projects=None, features: str = "text"):
-    if features != "text" and dataset != "neo":
+    if features != "text" and config.base_dataset(dataset) != "neo":
         print(f"  pulando {dataset}: características de repositório só existem no NEO")
         return
     if protocol == "perturb":
@@ -200,7 +200,7 @@ def run(dataset: str, protocol: str, models: list, svd: int, lopo_projects=None,
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.DATASETS)
+    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.ALL_DATASETS)
     ap.add_argument("--protocol", nargs="+", default=["within"], choices=["within", "cross", "lopo", "perturb"])
     ap.add_argument("--models", nargs="+", default=MODELS, choices=MODELS)
     ap.add_argument("--svd", type=int, default=0, help="componentes de SVD (0 = sem SVD, como no artigo)")

@@ -62,6 +62,23 @@ FEWSHOT_K_RANGE = (2, 4)        # 2 a 4 exemplos por prompt
 DATASETS = ["agile", "neo"]
 
 # --------------------------------------------------------------------------
+# EXTENSÃO: versões limpas (05_clean_data.py). As originais continuam intactas
+# para a reprodução; as limpas usam os MESMOS splits, só que filtrados.
+# --------------------------------------------------------------------------
+DATASETS_LIMPOS = ["agile_limpo", "neo_limpo"]
+ALL_DATASETS = DATASETS + DATASETS_LIMPOS
+# Projetos do NEO cujo "story point" (campo weight do GitLab) não é estimativa do time:
+#   15502567 KiCad e 12450835 Duplicity: migrados do Launchpad, SP mínimo 4 e maioria = 6 (peso padrão)
+#   28419588 Lazarus e 28644964 FPC Source: pesos de 100 a 300, moda 100
+PROJETOS_SP_INVALIDO = {"neo": ["15502567", "12450835", "28419588", "28644964"], "agile": []}
+
+
+def base_dataset(name: str) -> str:
+    """'neo_limpo' -> 'neo'."""
+    return name.split("_")[0]
+
+
+# --------------------------------------------------------------------------
 # EXTENSÃO — contexto do repositório (etapas 05–07; não faz parte do artigo)
 # --------------------------------------------------------------------------
 # CSVs originais de Choetkiertikul et al. (2019). Trazem a chave Jira de cada issue

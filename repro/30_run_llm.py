@@ -93,7 +93,7 @@ CARD_PREFIX = ("Project context (background about the software project this work
 
 
 def load_cards() -> dict:
-    """EXTENSÃO: (dataset, projeto) -> cartão do projeto (08_project_cards.py)."""
+    """EXTENSÃO: (dataset base, projeto) -> cartão do projeto (08_project_cards.py). Vale também para *_limpo."""
     path = config.DATA_PROCESSED / "project_cards.csv"
     if not path.exists():
         sys.exit("Falta data/processed/project_cards.csv. Rode antes: python repro/08_project_cards.py")
@@ -150,12 +150,12 @@ def export(df_inst: pd.DataFrame, raw_path: Path, dataset, protocol, run_name, p
 def run_one(df, dataset, protocol, template, args, client, cards=None):
     inst = instances(df, protocol)
     if cards is not None:   # EXTENSÃO --cartao: só issues de projetos com cartão
-        inst = inst[[(dataset, p) in cards for p in inst.project]]
+        inst = inst[[(config.base_dataset(dataset), p) in cards for p in inst.project]]
     if args.limit:
         inst = inst.head(args.limit)
     shots_tag = "" if template in ZS_TEMPLATES else f"__{args.shots_from}"
     run_name = f"{slug(args.model)}__{template}{shots_tag}" + ("__cartao" if cards is not None else "")
-    card_of = (lambda r: cards[(dataset, r.project)]) if cards is not None else (lambda r: None)
+    card_of = (lambda r: cards[(config.base_dataset(dataset), r.project)]) if cards is not None else (lambda r: None)
     raw_path = config.LLM_RAW / dataset / protocol / f"{run_name}.jsonl"
 
     if args.dry_run:
@@ -205,7 +205,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--provider", required=True, choices=["ollama", *PRESETS, "openai_compat"])
     ap.add_argument("--model", required=True, help="nome do modelo no provedor (ex.: llama3.2:3b)")
-    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.DATASETS)
+    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.ALL_DATASETS)
     ap.add_argument("--protocol", nargs="+", default=["within"], choices=list(PROTOCOL_COLUMN))
     ap.add_argument("--template", nargs="+", default=None,
                     help="ZS1..ZS10 (zero-shot) ou FS1..FS3 (few-shot). Padrão: ZS1, ou FS1 no protocolo fewshot")

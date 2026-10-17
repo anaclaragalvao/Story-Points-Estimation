@@ -77,7 +77,7 @@ def evaluate_file(path: Path, dataset: str, protocol: str, df: pd.DataFrame) -> 
 
 def main():
     rows = []
-    for dataset in config.DATASETS:
+    for dataset in config.ALL_DATASETS:
         base = config.PREDICTIONS / dataset
         if not base.exists():
             continue

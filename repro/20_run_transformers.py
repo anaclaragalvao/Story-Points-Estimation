@@ -213,7 +213,7 @@ def folds(df, protocol, lopo_projects):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.DATASETS)
+    ap.add_argument("--dataset", nargs="+", default=config.DATASETS, choices=config.ALL_DATASETS)
     ap.add_argument("--protocol", nargs="+", default=["within"], choices=["within", "cross", "lopo"])
     ap.add_argument("--models", nargs="+", default=list(MODELS), choices=list(MODELS))
     ap.add_argument("--epochs", type=int, default=20)

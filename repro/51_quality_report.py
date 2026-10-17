@@ -366,7 +366,7 @@ def cmd_inspect(args):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("comando", choices=["signals", "sample", "report", "inspect"])
-    ap.add_argument("--dataset", default="agile", choices=config.DATASETS, help="(inspect)")
+    ap.add_argument("--dataset", default="agile", choices=config.ALL_DATASETS, help="(inspect)")
     ap.add_argument("--engine", default="jev", help="(inspect) jev ou laya")
     ap.add_argument("--xlsx", action="store_true", help="(inspect) gerar planilha de conferência")
     ap.add_argument("--n", type=int, default=None,

@@ -14,6 +14,7 @@ projetos com repositório (raise_repos.json):
 
     python repro/31_estimativa_contexto.py
     python repro/31_estimativa_contexto.py --models KNN XGBoost RandomForest --llm llama3
+    python repro/31_estimativa_contexto.py --datasets agile_limpo neo_limpo     # versões limpas
 
 Antes: 08_project_cards.py (--coletar e --exportar bastam para A e C; os cartões são para B),
 12_run_baselines.py e, para B, os dois comandos:
@@ -122,13 +123,13 @@ def paired(a: pd.Series, b: pd.Series, label_a: str, label_b: str, y: pd.Series,
             "p (Wilcoxon)": p, "n": len(d)}
 
 
-def run_ml(ds: str, feats: pd.DataFrame, models: list) -> dict:
+def run_ml(ds: str, feats: pd.DataFrame, models: list):
     """Treina as três versões no within restrito aos projetos com repositório. Devolve {nome: y_pred no eval}."""
     from scipy import sparse
     from sklearn.preprocessing import StandardScaler
     ml = load_script("10_run_ml.py")
     df = load_merged(ds)
-    fp = feats[feats.dataset == ds].set_index("project")
+    fp = feats[feats.dataset == config.base_dataset(ds)].set_index("project")
     df = df[df.project.isin(fp.index)].reset_index(drop=True)
     tr, pr = (df.within == "train").to_numpy(), (df.within == "test").to_numpy()
     y_tr = df.loc[tr, "sp"].to_numpy()
@@ -175,6 +176,8 @@ def main():
     ap.add_argument("--models", nargs="+", default=["KNN", "XGBoost"],
                     help="modelos de ML (SVR e RandomForest são mais lentos)")
     ap.add_argument("--llm", default="llama3", help="nome do modelo usado no 30_run_llm.py (ex.: llama3)")
+    ap.add_argument("--datasets", nargs="+", default=config.DATASETS, choices=config.ALL_DATASETS,
+                    help="agile/neo (do artigo) ou agile_limpo/neo_limpo (versões limpas)")
     args = ap.parse_args()
 
     feats = repo_features()
@@ -185,8 +188,8 @@ def main():
                  "n_languages", "repo_age_years"]].round(1).to_string(index=False))
 
     rows, corr = [], []
-    for ds in config.DATASETS:
-        if not (feats.dataset == ds).any():
+    for ds in args.datasets:
+        if not (feats.dataset == config.base_dataset(ds)).any():
             continue
         print(f"\n== {ds}: ML no within restrito aos projetos com repositório ==")
         preds, ev = run_ml(ds, feats, args.models)
@@ -210,8 +213,9 @@ def main():
 
         # C. por projeto: características × mediana de SP do projeto (todo o dataset)
         d = load_merged(ds)
-        sp = d[d.project.isin(feats[feats.dataset == ds].project)].groupby("project").sp.median().rename("sp_mediana")
-        fp = feats[feats.dataset == ds].set_index("project").join(sp)
+        fb = feats[feats.dataset == config.base_dataset(ds)]
+        sp = d[d.project.isin(fb.project)].groupby("project").sp.median().rename("sp_mediana")
+        fp = fb.set_index("project").join(sp)
         for c in FEATURES:
             if fp[c].nunique() > 1:
                 rho, p = stats.spearmanr(fp[c], fp.sp_mediana)
