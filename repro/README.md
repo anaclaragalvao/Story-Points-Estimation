@@ -183,6 +183,55 @@ MAE maior (mediana do projeto 4,85 contra 3,80), como Abadeer & Sabetzadeh obser
 No NEO acontece o contrário (1,77 contra 2,72), provavelmente porque lá as issues sem
 descrição são tarefas pequenas. A coluna `SP_medio` ajuda a separar os dois efeitos.
 
+## Extensão: contexto do projeto (RAISE)
+
+O texto das issues não traz o que quem trabalha no projeto sabe: o que é o sistema, quais são
+os módulos, o vocabulário do domínio. A extensão dá ao LLM um **cartão do projeto** junto com a
+issue e mede se a reescrita fica melhor que a do "melhorar" sem contexto (seção 12 do
+`analise_jev.ipynb`).
+
+O cartão vem dos metadados do repositório no GitHub (descrição, README, linguagens, tópicos),
+extraídos pelo [RAISE](https://github.com/aisepucrio/raise) (Neves et al., SBCARS 2025), usado
+**só como extrator**. O mapa projeto → repositório está em `raise_repos.json`: 8 projetos do
+Agile e 9 do NEO têm repositório público no GitHub.
+
+```bash
+# 0. RAISE rodando: na pasta do raise, copie .env.example para .env, ponha seu token do GitHub
+#    em GITHUB_TOKENS e rode `docker compose up --build`
+python repro/08_project_cards.py --coletar     # pede ao RAISE os metadados dos 17 repositórios
+python repro/08_project_cards.py --exportar    # salva a tabela githubmetadata em data/raw/raise/
+python repro/08_project_cards.py               # monta os cartões com o Llama 3 (Ollama) -> data/processed/project_cards.csv
+# depois: seção 12 do analise_jev.ipynb (depois das seções 8 a 11)
+```
+
+Limites: o cartão é um retrato **atual** do repositório (posterior às issues), é igual para
+todas as issues do projeto e só existe para projetos com repositório no GitHub.
+
+**O contexto do repositório ajuda a estimar?** Os mesmos metadados entram na estimativa:
+
+```bash
+python repro/30_run_llm.py --provider ollama --model llama3            # ZS1 sem cartão (o do artigo)
+python repro/30_run_llm.py --provider ollama --model llama3 --cartao   # ZS1 com o cartão antes
+python repro/31_estimativa_contexto.py                                 # comparações pareadas
+```
+
+O `31` treina KNN e XGBoost (within) só nos projetos com repositório, com três conjuntos de
+características: só texto, só repositório (estrelas, forks, watchers, contribuidores, releases,
+issues abertas, tópicos, linguagens e idade, todos do RAISE) e texto + repositório. Compara com
+a mediana do projeto e, se as duas rodadas do LLM existirem, compara ZS1 com e sem cartão. Tudo
+é pareado no `within_eval` (Wilcoxon + IC95% bootstrap). Também faz uma correlação exploratória
+por projeto (n = 8 no Agile, 9 no NEO). Tabelas em `results/tables/contexto_*.csv`.
+Expectativa, pela Extensão 1: as características do repositório são constantes no projeto e
+tendem só a reproduzir a mediana do projeto.
+
+### Trabalho futuro: contexto por issue (05–07)
+
+`05_agile_issuekeys.py`, `06_link_commits.py` e `07_build_context.py` (com `see/raise_db.py`)
+são uma versão mais completa, ainda não usada: ligam cada issue aos commits que a citam e montam
+um contexto específico por issue (arquivos de tarefas parecidas, áreas ativas do código), só com
+o que existia antes da issue. Exigem a coleta de commits no RAISE (horas) e o Postgres dele.
+O 05 sozinho já é útil: recupera a chave Jira real das 23.313 issues do Agile.
+
 ## Como as etapas se encaixam
 
 Cada etapa é um script independente. Elas se comunicam só por arquivos, então
@@ -195,6 +244,8 @@ cada uma pode rodar num computador diferente.
 | 2b. Características dos repositórios (extensão, só NEO) | `04_repo_features.py` | qualquer um | segundos |
 | 3. Splits | `03_make_splits.py` | **já feito** (versionado em `data/splits/`) | — |
 | 4. Textos perturbados | `40_perturb_texts.py` | **já feito** (versionado em `data/perturbed/`) | — |
+| Cartão do projeto (extensão) | `08_project_cards.py` | PC com o RAISE (Docker) e o Ollama | minutos |
+| Contexto do repositório na estimativa (extensão) | `30_run_llm.py --cartao`, `31_estimativa_contexto.py` | Ollama; ML na CPU | LLM: depende; ML: ~10 min |
 | Baselines ingênuos (média/mediana) | `12_run_baselines.py` | qualquer um | segundos |
 | Qualidade da entrada (extensão) | `50_quality_judge.py`, `51_quality_report.py` | Colab (Laya na GPU), notebook ou API do Jev | minutos a horas |
 | ML clássico | `10_run_ml.py` | notebook (CPU) | ~1 h por dataset no within (SVR é o mais lento) |

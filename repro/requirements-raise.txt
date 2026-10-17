@@ -1,0 +1,2 @@
+# Etapas 06 e 07 (leem o Postgres do RAISE). Além de requirements.txt:
+psycopg[binary]>=3.1

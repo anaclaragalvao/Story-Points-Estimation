@@ -1,0 +1,63 @@
+{
+  "_leia": [
+    "Projeto do dataset -> repositório(s) no GitHub, no formato owner/repo usado no RAISE.",
+    "Usado pelo 08_project_cards.py (cartão do projeto, a partir dos metadados do RAISE) e, no futuro, pelo 06_link_commits.py.",
+    "Ficam de fora os projetos sem repositório público no GitHub: TISTUD, APSTUD, STUDIO, TDQ, TESB, BAM, JSW, GHS no Agile; gitlab-org/*, opengeoweb, nlx, glaxnimate, upchieve, kicad, duplicity, fpc, lazarus no NEO; tezos tem espelho no GitHub, mas abandonado (README vazio). DM (LSST) está espalhado por dezenas de repositórios e não tem um que represente o projeto.",
+    "Para o 06 (ligação issue-commit) as taxas medidas em 15/10/2026 foram: MDL 78%, MULE 68%, DURACLOUD 53%, XD 42%, TIMOB 37%, USERGRID 34%, MESOS 7%, CLOV 0%; stackgres 76%, mlreef 62%, database-lab 61%, meltano 46%, veloren 33%, front 26%, engine 20%, mobile-native 17%, minds/minds 1%."
+  ],
+  "agile": {
+    "MDL": [
+      "moodle/moodle"
+    ],
+    "MULE": [
+      "mulesoft/mule"
+    ],
+    "DURACLOUD": [
+      "duracloud/duracloud"
+    ],
+    "XD": [
+      "spring-projects/spring-xd"
+    ],
+    "TIMOB": [
+      "tidev/titanium-sdk"
+    ],
+    "USERGRID": [
+      "apache/usergrid"
+    ],
+    "MESOS": [
+      "apache/mesos"
+    ],
+    "CLOV": [
+      "openclover/clover"
+    ]
+  },
+  "neo": {
+    "12584701": [
+      "ongres/stackgres"
+    ],
+    "12894267": [
+      "MLReef/mlreef"
+    ],
+    "14976868": [
+      "postgres-ai/database-lab-engine"
+    ],
+    "7603319": [
+      "meltano/meltano"
+    ],
+    "10174980": [
+      "veloren/veloren"
+    ],
+    "10171270": [
+      "Minds/front"
+    ],
+    "10171263": [
+      "Minds/engine"
+    ],
+    "10171280": [
+      "Minds/mobile-native"
+    ],
+    "10152778": [
+      "minds/minds"
+    ]
+  }
+}

@@ -20,6 +20,10 @@ Exemplos:
     # Sensibilidade ao prompt (RQ2): os 10 templates zero-shot
     python repro/30_run_llm.py --template ZS1 ZS2 ZS3 ZS4 ZS5 ZS6 ZS7 ZS8 ZS9 ZS10 ...
 
+    # EXTENSÃO: o mesmo prompt com o cartão do projeto antes (gere os cartões com 08_project_cards.py).
+    # Só issues de projetos com cartão; salva como <modelo>__ZS1__cartao. Compare com 31_estimativa_contexto.py.
+    python repro/30_run_llm.py --provider ollama --model llama3 --cartao
+
 Retomável: cada resposta é gravada na hora em results/llm_raw/.../*.jsonl.
 Se cair a internet, acabar a cota ou você fechar o notebook, rode o MESMO comando
 de novo e ele continua de onde parou. Para juntar resultados feitos em outro
@@ -84,12 +88,27 @@ def pick_examples(df: pd.DataFrame, row, shots_from: str, max_chars: int):
             for r in chosen.itertuples()]
 
 
-def build_prompt(df, row, template, shots_from, max_chars):
+CARD_PREFIX = ("Project context (background about the software project this work item belongs to):\n"
+               "{card}\n\n")
+
+
+def load_cards() -> dict:
+    """EXTENSÃO: (dataset, projeto) -> cartão do projeto (08_project_cards.py)."""
+    path = config.DATA_PROCESSED / "project_cards.csv"
+    if not path.exists():
+        sys.exit("Falta data/processed/project_cards.csv. Rode antes: python repro/08_project_cards.py")
+    c = pd.read_csv(path, dtype={"project": str}).fillna("")
+    return {(r.dataset, r.project): (r.cartao or r.cartao_bruto) for r in c.itertuples()}
+
+
+def build_prompt(df, row, template, shots_from, max_chars, card=None):
     title = clean_light(row.title)
     desc = truncate(clean_light(row.description), max_chars)
     if template in FS_TEMPLATES:
-        return few_shot(template, title, desc, pick_examples(df, row, shots_from, max_chars // 3))
-    return zero_shot(template, title, desc)
+        prompt = few_shot(template, title, desc, pick_examples(df, row, shots_from, max_chars // 3))
+    else:
+        prompt = zero_shot(template, title, desc)
+    return CARD_PREFIX.format(card=card) + prompt if card else prompt
 
 
 def read_done(path: Path) -> dict:
@@ -128,18 +147,21 @@ def export(df_inst: pd.DataFrame, raw_path: Path, dataset, protocol, run_name, p
           + (f", faltam {missing}" if missing else "") + ")")
 
 
-def run_one(df, dataset, protocol, template, args, client):
+def run_one(df, dataset, protocol, template, args, client, cards=None):
     inst = instances(df, protocol)
+    if cards is not None:   # EXTENSÃO --cartao: só issues de projetos com cartão
+        inst = inst[[(dataset, p) in cards for p in inst.project]]
     if args.limit:
         inst = inst.head(args.limit)
     shots_tag = "" if template in ZS_TEMPLATES else f"__{args.shots_from}"
-    run_name = f"{slug(args.model)}__{template}{shots_tag}"
+    run_name = f"{slug(args.model)}__{template}{shots_tag}" + ("__cartao" if cards is not None else "")
+    card_of = (lambda r: cards[(dataset, r.project)]) if cards is not None else (lambda r: None)
     raw_path = config.LLM_RAW / dataset / protocol / f"{run_name}.jsonl"
 
     if args.dry_run:
         row = next(inst.itertuples())
         print("-" * 70 + f"\n{run_name} | {row.issue_id} | SP real = {row.sp}\n" + "-" * 70)
-        print(build_prompt(df, row, template, args.shots_from, args.max_desc_chars))
+        print(build_prompt(df, row, template, args.shots_from, args.max_desc_chars, card_of(row)))
         return
     if args.export_only:
         export(inst, raw_path, dataset, protocol, run_name, args.provider, args.model, template)
@@ -153,7 +175,7 @@ def run_one(df, dataset, protocol, template, args, client):
     last = 0.0
     with open(raw_path, "a", encoding="utf-8") as f:
         for n, row in enumerate(todo.itertuples(), start=1):
-            prompt = build_prompt(df, row, template, args.shots_from, args.max_desc_chars)
+            prompt = build_prompt(df, row, template, args.shots_from, args.max_desc_chars, card_of(row))
             wait = min_interval - (time.time() - last)
             if wait > 0:
                 time.sleep(wait)
@@ -199,7 +221,11 @@ def main():
     ap.add_argument("--api-key-env")
     ap.add_argument("--dry-run", action="store_true", help="mostra o primeiro prompt e sai")
     ap.add_argument("--export-only", action="store_true", help="só converte os .jsonl em predições")
+    ap.add_argument("--cartao", action="store_true",
+                    help="EXTENSÃO: põe o cartão do projeto (08_project_cards.py) antes do prompt; "
+                         "só issues de projetos com cartão")
     args = ap.parse_args()
+    cards = load_cards() if args.cartao else None
 
     client = None
     if not (args.dry_run or args.export_only):
@@ -212,7 +238,7 @@ def main():
             if protocol == "perturb":
                 for proto, view in perturbed_views(df, dataset):
                     for template in templates:
-                        run_one(view, dataset, proto, template, args, client)
+                        run_one(view, dataset, proto, template, args, client, cards)
                 continue
             for template in templates:
                 if protocol == "fewshot" and template not in FS_TEMPLATES:
@@ -220,7 +246,7 @@ def main():
                 proto = protocol if template in ZS_TEMPLATES or protocol == "fewshot" else f"{protocol}_fewshot"
                 if args.shots_from == "same_project" and template in FS_TEMPLATES:
                     proto += "_sameproj"
-                run_one(df, dataset, proto, template, args, client)
+                run_one(df, dataset, proto, template, args, client, cards)
 
 
 if __name__ == "__main__":
