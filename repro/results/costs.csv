@@ -334,3 +334,5 @@ timestamp,machine,dataset,protocol,family,model,n_train,n_pred,train_seconds,inf
 2026-10-19T12:41:24,FELIPE-PC,neo,within,ML,XGBoost+repo,16384,2045,139.546,0.0707,fold=all
 2026-10-19T13:28:35,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1,0,1031,0,2.343,provider=ollama; infer_seconds = latência média por issue; invalidas=0
 2026-10-19T13:56:19,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1,0,716,0,2.323,provider=ollama; infer_seconds = latência média por issue; invalidas=1
+2026-10-19T14:34:08,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1__cartao,0,503,0,2.338,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-19T14:45:07,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1__cartao,0,284,0,2.315,provider=ollama; infer_seconds = latência média por issue; invalidas=0
