@@ -322,3 +322,15 @@ timestamp,machine,dataset,protocol,family,model,n_train,n_pred,train_seconds,inf
 2026-10-19T10:36:46,FELIPE-PC,neo,perturb_s123,LLM,llama3__ZS1,0,1022,0,2.31,provider=ollama; infer_seconds = latência média por issue; invalidas=0
 2026-10-19T11:16:17,FELIPE-PC,neo,perturb_s2025,LLM,llama3__ZS1,0,1022,0,2.319,provider=ollama; infer_seconds = latência média por issue; invalidas=0
 2026-10-19T11:55:52,FELIPE-PC,neo,perturb_s42,LLM,llama3__ZS1,0,1022,0,2.323,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-19T12:31:43,FELIPE-PC,neo,within,ML,LinearRegression_repoonly,16384,2045,0.025,0.0006,fold=all
+2026-10-19T12:31:44,FELIPE-PC,neo,within,ML,RandomForest_repoonly,16384,2045,0.771,0.0786,fold=all
+2026-10-19T12:31:51,FELIPE-PC,neo,within,ML,SVR_repoonly,16384,2045,6.39,1.3911,fold=all
+2026-10-19T12:31:51,FELIPE-PC,neo,within,ML,KNN_repoonly,16384,2045,0.015,0.0305,fold=all
+2026-10-19T12:31:52,FELIPE-PC,neo,within,ML,XGBoost_repoonly,16384,2045,0.522,0.0068,fold=all
+2026-10-19T12:32:02,FELIPE-PC,neo,within,ML,LinearRegression+repo,16384,2045,5.603,0.0005,fold=all
+2026-10-19T12:32:24,FELIPE-PC,neo,within,ML,RandomForest+repo,16384,2045,22.404,0.1075,fold=all
+2026-10-19T12:39:04,FELIPE-PC,neo,within,ML,SVR+repo,16384,2045,389.679,9.9736,fold=all
+2026-10-19T12:39:05,FELIPE-PC,neo,within,ML,KNN+repo,16384,2045,0.004,0.5288,fold=all
+2026-10-19T12:41:24,FELIPE-PC,neo,within,ML,XGBoost+repo,16384,2045,139.546,0.0707,fold=all
+2026-10-19T13:28:35,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1,0,1031,0,2.343,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-19T13:56:19,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1,0,716,0,2.323,provider=ollama; infer_seconds = latência média por issue; invalidas=1
