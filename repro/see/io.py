@@ -44,7 +44,7 @@ def log_cost(dataset: str, protocol: str, family: str, model: str, **fields):
     row = {"timestamp": dt.datetime.now().isoformat(timespec="seconds"), "machine": platform.node(),
            "dataset": dataset, "protocol": protocol, "family": family, "model": model, **fields}
     new = not path.exists()
-    with open(path, "a", newline="") as f:
+    with open(path, "a", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=COST_FIELDS)
         if new:
             w.writeheader()

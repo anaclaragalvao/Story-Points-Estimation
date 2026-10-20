@@ -303,25 +303,25 @@ timestamp,machine,dataset,protocol,family,model,n_train,n_pred,train_seconds,inf
 2026-10-19T04:16:32,FELIPE-PC,neo,perturb,ML,SVR,16384,3066,401.184,12.109,
 2026-10-19T04:16:35,FELIPE-PC,neo,perturb,ML,KNN,16384,3066,0.004,0.8184,
 2026-10-19T04:19:07,FELIPE-PC,neo,perturb,ML,XGBoost,16384,3066,150.663,0.0706,
-2026-10-19T04:20:55,FELIPE-PC,agile,original_code,ML,KNN,16319,6994,0.086,3.3637,pipeline literal do repositório original
-2026-10-19T04:20:59,FELIPE-PC,agile,original_code,ML,LinearRegression,16319,6994,4.488,0.0496,pipeline literal do repositório original
-2026-10-19T04:21:22,FELIPE-PC,agile,original_code,ML,RandomForest,16319,6994,22.759,0.3071,pipeline literal do repositório original
-2026-10-19T04:27:46,FELIPE-PC,agile,original_code,ML,XGBoost,16319,6994,382.931,0.0643,pipeline literal do repositório original
-2026-10-19T04:51:55,FELIPE-PC,agile,original_code,ML,SVR,16319,6994,1284.595,165.0453,pipeline literal do repositório original
-2026-10-19T05:35:43,FELIPE-PC,agile,within,LLM,llama3__ZS1,0,1166,0,2.33,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T05:54:35,FELIPE-PC,agile,cross,LLM,llama3__ZS1,0,488,0,2.32,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T06:14:17,FELIPE-PC,agile,lopo,LLM,llama3__ZS1,0,510,0,2.317,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T06:20:45,FELIPE-PC,agile,fewshot,LLM,llama3__FS1__other_projects,0,100,0,3.872,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T07:05:48,FELIPE-PC,agile,perturb_s123,LLM,llama3__ZS1,0,1166,0,2.318,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T07:50:52,FELIPE-PC,agile,perturb_s2025,LLM,llama3__ZS1,0,1166,0,2.318,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T08:35:58,FELIPE-PC,agile,perturb_s42,LLM,llama3__ZS1,0,1166,0,2.32,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T09:15:29,FELIPE-PC,neo,within,LLM,llama3__ZS1,0,1022,0,2.319,provider=ollama; infer_seconds = latência média por issue; invalidas=1
-2026-10-19T09:31:54,FELIPE-PC,neo,cross,LLM,llama3__ZS1,0,425,0,2.316,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T09:51:02,FELIPE-PC,neo,lopo,LLM,llama3__ZS1,0,493,0,2.328,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T09:57:25,FELIPE-PC,neo,fewshot,LLM,llama3__FS1__other_projects,0,100,0,3.822,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T10:36:46,FELIPE-PC,neo,perturb_s123,LLM,llama3__ZS1,0,1022,0,2.31,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T11:16:17,FELIPE-PC,neo,perturb_s2025,LLM,llama3__ZS1,0,1022,0,2.319,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T11:55:52,FELIPE-PC,neo,perturb_s42,LLM,llama3__ZS1,0,1022,0,2.323,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-19T04:20:55,FELIPE-PC,agile,original_code,ML,KNN,16319,6994,0.086,3.3637,pipeline literal do repositÃ³rio original
+2026-10-19T04:20:59,FELIPE-PC,agile,original_code,ML,LinearRegression,16319,6994,4.488,0.0496,pipeline literal do repositÃ³rio original
+2026-10-19T04:21:22,FELIPE-PC,agile,original_code,ML,RandomForest,16319,6994,22.759,0.3071,pipeline literal do repositÃ³rio original
+2026-10-19T04:27:46,FELIPE-PC,agile,original_code,ML,XGBoost,16319,6994,382.931,0.0643,pipeline literal do repositÃ³rio original
+2026-10-19T04:51:55,FELIPE-PC,agile,original_code,ML,SVR,16319,6994,1284.595,165.0453,pipeline literal do repositÃ³rio original
+2026-10-19T05:35:43,FELIPE-PC,agile,within,LLM,llama3__ZS1,0,1166,0,2.33,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T05:54:35,FELIPE-PC,agile,cross,LLM,llama3__ZS1,0,488,0,2.32,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T06:14:17,FELIPE-PC,agile,lopo,LLM,llama3__ZS1,0,510,0,2.317,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T06:20:45,FELIPE-PC,agile,fewshot,LLM,llama3__FS1__other_projects,0,100,0,3.872,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T07:05:48,FELIPE-PC,agile,perturb_s123,LLM,llama3__ZS1,0,1166,0,2.318,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T07:50:52,FELIPE-PC,agile,perturb_s2025,LLM,llama3__ZS1,0,1166,0,2.318,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T08:35:58,FELIPE-PC,agile,perturb_s42,LLM,llama3__ZS1,0,1166,0,2.32,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T09:15:29,FELIPE-PC,neo,within,LLM,llama3__ZS1,0,1022,0,2.319,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=1
+2026-10-19T09:31:54,FELIPE-PC,neo,cross,LLM,llama3__ZS1,0,425,0,2.316,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T09:51:02,FELIPE-PC,neo,lopo,LLM,llama3__ZS1,0,493,0,2.328,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T09:57:25,FELIPE-PC,neo,fewshot,LLM,llama3__FS1__other_projects,0,100,0,3.822,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T10:36:46,FELIPE-PC,neo,perturb_s123,LLM,llama3__ZS1,0,1022,0,2.31,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T11:16:17,FELIPE-PC,neo,perturb_s2025,LLM,llama3__ZS1,0,1022,0,2.319,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T11:55:52,FELIPE-PC,neo,perturb_s42,LLM,llama3__ZS1,0,1022,0,2.323,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
 2026-10-19T12:31:43,FELIPE-PC,neo,within,ML,LinearRegression_repoonly,16384,2045,0.025,0.0006,fold=all
 2026-10-19T12:31:44,FELIPE-PC,neo,within,ML,RandomForest_repoonly,16384,2045,0.771,0.0786,fold=all
 2026-10-19T12:31:51,FELIPE-PC,neo,within,ML,SVR_repoonly,16384,2045,6.39,1.3911,fold=all
@@ -332,7 +332,7 @@ timestamp,machine,dataset,protocol,family,model,n_train,n_pred,train_seconds,inf
 2026-10-19T12:39:04,FELIPE-PC,neo,within,ML,SVR+repo,16384,2045,389.679,9.9736,fold=all
 2026-10-19T12:39:05,FELIPE-PC,neo,within,ML,KNN+repo,16384,2045,0.004,0.5288,fold=all
 2026-10-19T12:41:24,FELIPE-PC,neo,within,ML,XGBoost+repo,16384,2045,139.546,0.0707,fold=all
-2026-10-19T13:28:35,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1,0,1031,0,2.343,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T13:56:19,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1,0,716,0,2.323,provider=ollama; infer_seconds = latência média por issue; invalidas=1
-2026-10-19T14:34:08,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1__cartao,0,503,0,2.338,provider=ollama; infer_seconds = latência média por issue; invalidas=0
-2026-10-19T14:45:07,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1__cartao,0,284,0,2.315,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-19T13:28:35,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1,0,1031,0,2.343,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T13:56:19,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1,0,716,0,2.323,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=1
+2026-10-19T14:34:08,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1__cartao,0,503,0,2.338,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0
+2026-10-19T14:45:07,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1__cartao,0,284,0,2.315,provider=ollama; infer_seconds = latÃªncia mÃ©dia por issue; invalidas=0

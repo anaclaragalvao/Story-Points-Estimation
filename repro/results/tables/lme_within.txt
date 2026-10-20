@@ -1,1 +1,23 @@
-LME precisa de pelo menos 2 famÃ­lias e 3 modelos no within (tem: ['ML'], 13 modelos).
+Observações: 33 (modelos=17, datasets=4)
+
+          Mixed Linear Model Regression Results
+=========================================================
+Model:              MixedLM Dependent Variable: MAE      
+No. Observations:   33      Method:             ML       
+No. Groups:         17      Scale:              48.9393  
+Min. group size:    1       Log-Likelihood:     -123.3547
+Max. group size:    4       Converged:          Yes      
+Mean group size:    1.9                                  
+---------------------------------------------------------
+              Coef.  Std.Err.   z    P>|z|  [0.025 0.975]
+---------------------------------------------------------
+Intercept      7.990    2.952  2.707 0.007   2.206 13.775
+family[T.LLM] -1.313    8.081 -0.163 0.871 -17.152 14.526
+Group Var     95.175    8.534                            
+=========================================================
+
+
+Teste da razão de verossimilhança (efeito de família): LR=0.026, gl=1, p=0.871
+
+Comparação com o artigo (story points, Seção IV-A.5): mu=5,754; beta_Trans=-1,774; beta_LLM=3,955
+Nesta reprodução: mu=7.990; beta_LLM=-1.313 (p=0.8709)
