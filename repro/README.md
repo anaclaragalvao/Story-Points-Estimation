@@ -258,6 +258,32 @@ por projeto (n = 8 no Agile, 9 no NEO). Tabelas em `results/tables/contexto_*.cs
 Expectativa, pela Extensão 1: as características do repositório são constantes no projeto e
 tendem só a reproduzir a mediana do projeto.
 
+### Controles e estimativa por analogia (`analise_extensoes.ipynb`)
+
+Três perguntas que o resultado do cartão deixa em aberto, todas nas mesmas issues do `--cartao`:
+
+- **O cartão ajuda pela informação ou só por "ter contexto"?** `--cartao-placebo` põe o cartão de
+  **outro** projeto do mesmo dataset (cada projeto recebe o do seguinte, em ordem alfabética).
+- **Estimar por analogia ajuda?** Few-shot com exemplos do treino do **mesmo projeto**: sorteados
+  (`--shots-from same_project`) ou os **mais parecidos** com a issue (`--shots-from similar_same_project`,
+  TF-IDF ajustado só no treino do projeto). O número de exemplos por issue é o mesmo nos dois.
+- **Reescrita estruturada:** a issue reescrita num modelo fixo guiado pelos fatores de esforço (tipo,
+  objetivo, escopo, componentes, tecnologias, dependências, critérios de aceite, dúvidas), com o cartão e
+  "Not stated" onde falta informação. Entra no fatorial da seção 12 como 5ª versão. Motivação: Rasheed
+  et al. (2026), *Automated Software Engineering* 33:60.
+
+```bash
+python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --cartao-placebo
+python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --protocol within --template FS1 --shots-from similar_same_project --so-projetos-com-cartao
+python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --protocol within --template FS1 --shots-from similar_same_project --cartao
+python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --protocol within --template FS1 --shots-from same_project --so-projetos-com-cartao
+# depois: analise_extensoes.ipynb (parte 1 lê as predições; parte 2 usa os caches da seção 12 do analise_jev.ipynb)
+```
+
+Nada já rodado é refeito: os modos antigos do `30_run_llm.py` geram exatamente os mesmos prompts e
+arquivos, e o notebook novo só cria arquivos com nomes novos (`results/analise_extensoes/` e
+`results/improvement/*estruturar*`).
+
 ### Trabalho futuro: contexto por issue (05–07)
 
 `05_agile_issuekeys.py`, `06_link_commits.py` e `07_build_context.py` (com `see/raise_db.py`)
@@ -281,6 +307,7 @@ cada uma pode rodar num computador diferente.
 | 4. Textos perturbados | `40_perturb_texts.py` | **já feito** (versionado em `data/perturbed/`) | — |
 | Cartão do projeto (extensão) | `08_project_cards.py` | PC com o RAISE (Docker) e o Ollama | minutos |
 | Contexto do repositório na estimativa (extensão) | `30_run_llm.py --cartao`, `31_estimativa_contexto.py` | Ollama; ML na CPU | LLM: depende; ML: ~10 min |
+| Placebo, few-shot por analogia, reescrita estruturada (extensão) | `30_run_llm.py --cartao-placebo / --shots-from similar_same_project`, `analise_extensoes.ipynb` | Ollama (ou API) | ~2 h por rodada de 787 issues no llama3 local |
 | Baselines ingênuos (média/mediana) | `12_run_baselines.py` | qualquer um | segundos |
 | Qualidade da entrada (extensão) | `50_quality_judge.py`, `51_quality_report.py` | Colab (Laya na GPU), notebook ou API do Jev | minutos a horas |
 | ML clássico | `10_run_ml.py` | notebook (CPU) | ~1 h por dataset no within (SVR é o mais lento) |

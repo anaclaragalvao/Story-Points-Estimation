@@ -24,6 +24,23 @@ Exemplos:
     # Só issues de projetos com cartão; salva como <modelo>__ZS1__cartao. Compare com 31_estimativa_contexto.py.
     python repro/30_run_llm.py --provider ollama --model llama3 --cartao
 
+    # EXTENSÃO (controle): cartão PLACEBO = o cartão de OUTRO projeto do mesmo dataset. Se o cartão real
+    # ganhar do placebo, o ganho vem da informação do projeto, não de "ter um texto de contexto" no prompt.
+    # Salva como <modelo>__ZS1__cartaoplacebo (mesmas issues do --cartao).
+    python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --cartao-placebo
+
+    # EXTENSÃO: few-shot com exemplos do treino do MESMO projeto (estimativa por analogia, como o time faz).
+    #   same_project          = exemplos sorteados (já existia)
+    #   similar_same_project  = os exemplos MAIS PARECIDOS com a issue (TF-IDF ajustado só no treino do projeto)
+    # O número de exemplos (2 a 4) é o mesmo nos dois, por issue: só muda QUAIS exemplos entram.
+    # --so-projetos-com-cartao restringe às issues do --cartao (comparação pareada e menos chamadas).
+    python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo \
+        --protocol within --template FS1 --shots-from similar_same_project --so-projetos-com-cartao
+    # ... e junto com o cartão:
+    python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo \
+        --protocol within --template FS1 --shots-from similar_same_project --cartao
+    # A análise pareada de tudo isso está em analise_extensoes.ipynb (parte 1).
+
 Retomável: cada resposta é gravada na hora em results/llm_raw/.../*.jsonl.
 Se cair a internet, acabar a cota ou você fechar o notebook, rode o MESMO comando
 de novo e ele continua de onde parou. Para juntar resultados feitos em outro
@@ -74,16 +91,49 @@ def instances(df: pd.DataFrame, protocol: str) -> pd.DataFrame:
     return df[df[col] == 1]
 
 
+_SIMILAR_INDEX = {}   # (id do df, projeto) -> (treino do projeto, vetorizador, matriz TF-IDF)
+
+
+def _similar_index(df: pd.DataFrame, project):
+    key = (id(df), project)
+    if key not in _SIMILAR_INDEX:
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        pool = df[(df.project == project) & (df.within == "train")]
+        texts = (pool.title.map(clean_light) + " " + pool.description.map(clean_light)).tolist()
+        if pool.empty:
+            _SIMILAR_INDEX[key] = (pool, None, None)
+        else:
+            vec = TfidfVectorizer(stop_words="english", sublinear_tf=True).fit(texts)   # só o treino do projeto
+            _SIMILAR_INDEX[key] = (pool, vec, vec.transform(texts))
+    return _SIMILAR_INDEX[key]
+
+
 def pick_examples(df: pd.DataFrame, row, shots_from: str, max_chars: int):
-    """2 a 4 exemplos rotulados, sorteados de forma estável por issue."""
-    if shots_from == "other_projects":   # como no artigo: só projetos de treino do cross-project
-        pool = df[(df.cross == "train") & (df.project != row.project)]
-    else:                                # variação: exemplos do treino do MESMO projeto
-        pool = df[(df.project == row.project) & (df.within == "train") & (df.issue_id != row.issue_id)]
+    """2 a 4 exemplos rotulados por issue (k estável por issue).
+
+    other_projects        como no artigo: sorteados dos projetos de treino do cross-project
+    same_project          sorteados do treino do MESMO projeto
+    similar_same_project  os k mais parecidos do treino do MESMO projeto (similaridade de cosseno TF-IDF);
+                          o mais parecido fica por último, logo antes da issue a estimar
+    """
     rng = np.random.default_rng([config.SEED, zlib.crc32(row.issue_id.encode())])
     lo, hi = config.FEWSHOT_K_RANGE
-    k = min(int(rng.integers(lo, hi + 1)), len(pool))
-    chosen = pool.iloc[rng.choice(len(pool), k, replace=False)]
+    if shots_from == "similar_same_project":
+        pool, vec, mat = _similar_index(df, row.project)
+        k = min(int(rng.integers(lo, hi + 1)), len(pool))   # mesmo k do same_project para esta issue
+        if k == 0:
+            return []
+        query = vec.transform([clean_light(row.title) + " " + clean_light(row.description)])
+        sims = (mat @ query.T).toarray().ravel()
+        top = np.argsort(-sims, kind="stable")[:k][::-1]
+        chosen = pool.iloc[top]
+    else:
+        if shots_from == "other_projects":
+            pool = df[(df.cross == "train") & (df.project != row.project)]
+        else:
+            pool = df[(df.project == row.project) & (df.within == "train") & (df.issue_id != row.issue_id)]
+        k = min(int(rng.integers(lo, hi + 1)), len(pool))
+        chosen = pool.iloc[rng.choice(len(pool), k, replace=False)]
     return [(clean_light(r.title), truncate(clean_light(r.description), max_chars), r.sp)
             for r in chosen.itertuples()]
 
@@ -99,6 +149,19 @@ def load_cards() -> dict:
         sys.exit("Falta data/processed/project_cards.csv. Rode antes: python repro/08_project_cards.py")
     c = pd.read_csv(path, dtype={"project": str}).fillna("")
     return {(r.dataset, r.project): (r.cartao or r.cartao_bruto) for r in c.itertuples()}
+
+
+def placebo_map(df: pd.DataFrame, dataset: str, cards: dict) -> dict:
+    """EXTENSÃO --cartao-placebo: projeto -> projeto cujo cartão será usado no lugar do verdadeiro.
+
+    Entre os projetos do dataset que têm cartão, em ordem alfabética, cada um recebe o cartão do SEGUINTE
+    (o último recebe o do primeiro). Nenhum projeto recebe o próprio cartão, e todo cartão é usado uma vez.
+    """
+    base = config.base_dataset(dataset)
+    projs = sorted({p for p in df.project.unique() if (base, p) in cards}, key=str)
+    if len(projs) < 2:
+        sys.exit(f"{dataset}: o placebo precisa de pelo menos 2 projetos com cartão.")
+    return {p: projs[(i + 1) % len(projs)] for i, p in enumerate(projs)}
 
 
 def build_prompt(df, row, template, shots_from, max_chars, card=None):
@@ -149,13 +212,22 @@ def export(df_inst: pd.DataFrame, raw_path: Path, dataset, protocol, run_name, p
 
 def run_one(df, dataset, protocol, template, args, client, cards=None):
     inst = instances(df, protocol)
-    if cards is not None:   # EXTENSÃO --cartao: só issues de projetos com cartão
-        inst = inst[[(config.base_dataset(dataset), p) in cards for p in inst.project]]
+    base = config.base_dataset(dataset)
+    if cards is not None:   # EXTENSÃO --cartao / --cartao-placebo / --so-projetos-com-cartao: só projetos com cartão
+        inst = inst[[(base, p) in cards for p in inst.project]]
     if args.limit:
         inst = inst.head(args.limit)
     shots_tag = "" if template in ZS_TEMPLATES else f"__{args.shots_from}"
-    run_name = f"{slug(args.model)}__{template}{shots_tag}" + ("__cartao" if cards is not None else "")
-    card_of = (lambda r: cards[(config.base_dataset(dataset), r.project)]) if cards is not None else (lambda r: None)
+    card_tag = "__cartao" if args.cartao else "__cartaoplacebo" if args.cartao_placebo else ""
+    run_name = f"{slug(args.model)}__{template}{shots_tag}{card_tag}"
+    if args.cartao:
+        card_of = lambda r: cards[(base, r.project)]  # noqa: E731
+    elif args.cartao_placebo:
+        troca = placebo_map(df, dataset, cards)
+        print(f"   placebo ({dataset}): " + "; ".join(f"{p} recebe o cartão de {q}" for p, q in troca.items()))
+        card_of = lambda r: cards[(base, troca[r.project])]  # noqa: E731
+    else:
+        card_of = lambda r: None  # noqa: E731
     raw_path = config.LLM_RAW / dataset / protocol / f"{run_name}.jsonl"
 
     if args.dry_run:
@@ -209,8 +281,9 @@ def main():
     ap.add_argument("--protocol", nargs="+", default=["within"], choices=list(PROTOCOL_COLUMN))
     ap.add_argument("--template", nargs="+", default=None,
                     help="ZS1..ZS10 (zero-shot) ou FS1..FS3 (few-shot). Padrão: ZS1, ou FS1 no protocolo fewshot")
-    ap.add_argument("--shots-from", default="other_projects", choices=["other_projects", "same_project"],
-                    help="origem dos exemplos few-shot (artigo: other_projects)")
+    ap.add_argument("--shots-from", default="other_projects",
+                    choices=["other_projects", "same_project", "similar_same_project"],
+                    help="origem dos exemplos few-shot (artigo: other_projects; EXTENSÃO: similar_same_project)")
     ap.add_argument("--temperature", type=float, default=0.0,
                     help="o artigo diz apenas 'configurações padrão'; fixamos 0 para reprodutibilidade")
     ap.add_argument("--max-tokens", type=int, default=512)
@@ -221,11 +294,16 @@ def main():
     ap.add_argument("--api-key-env")
     ap.add_argument("--dry-run", action="store_true", help="mostra o primeiro prompt e sai")
     ap.add_argument("--export-only", action="store_true", help="só converte os .jsonl em predições")
-    ap.add_argument("--cartao", action="store_true",
-                    help="EXTENSÃO: põe o cartão do projeto (08_project_cards.py) antes do prompt; "
-                         "só issues de projetos com cartão")
+    ctx = ap.add_mutually_exclusive_group()
+    ctx.add_argument("--cartao", action="store_true",
+                     help="EXTENSÃO: põe o cartão do projeto (08_project_cards.py) antes do prompt; "
+                          "só issues de projetos com cartão")
+    ctx.add_argument("--cartao-placebo", action="store_true",
+                     help="EXTENSÃO (controle): põe o cartão de OUTRO projeto do mesmo dataset; mesmas issues do --cartao")
+    ctx.add_argument("--so-projetos-com-cartao", action="store_true",
+                     help="EXTENSÃO: sem cartão no prompt, mas só as issues do --cartao (para comparar pareado)")
     args = ap.parse_args()
-    cards = load_cards() if args.cartao else None
+    cards = load_cards() if (args.cartao or args.cartao_placebo or args.so_projetos_com_cartao) else None
 
     client = None
     if not (args.dry_run or args.export_only):
@@ -246,6 +324,8 @@ def main():
                 proto = protocol if template in ZS_TEMPLATES or protocol == "fewshot" else f"{protocol}_fewshot"
                 if args.shots_from == "same_project" and template in FS_TEMPLATES:
                     proto += "_sameproj"
+                elif args.shots_from == "similar_same_project" and template in FS_TEMPLATES:
+                    proto += "_simproj"
                 run_one(df, dataset, proto, template, args, client, cards)
 
 
