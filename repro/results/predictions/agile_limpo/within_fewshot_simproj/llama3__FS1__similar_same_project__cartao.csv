@@ -1,0 +1,2458 @@
+issue_id,project,y_true,y_pred,raw_response,family,provider,llm,template
+MDL-00069,MDL,8.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which is relatively straightforward to resolv",LLM,ollama,llama3,FS1
+MDL-00082,MDL,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+5",LLM,ollama,llama3,FS1
+MDL-00097,MDL,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This is because the issue is similar to Example 3, where the focus is not being put in the modal window, ",LLM,ollama,llama3,FS1
+MDL-00189,MDL,8.0,15.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 15**
+
+This estimate is based on the fact that the activity chooser is already designed",LLM,ollama,llama3,FS1
+MDL-00196,MDL,100.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the issue, which seems to be related to the user interface ",LLM,ollama,llama3,FS1
+MDL-00218,MDL,20.0,15.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**15**
+
+This estimate is based on the complexity of the task, which involves replacing legacy events related t",LLM,ollama,llama3,FS1
+MDL-00230,MDL,40.0,30.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**30**
+
+This estimate takes into account the number of add_to_log calls to be replaced (21) and the complexity o",LLM,ollama,llama3,FS1
+MDL-00243,MDL,20.0,15.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**15**
+
+This estimate takes into account the number of add_to_log calls that need to be replaced, the complexity",LLM,ollama,llama3,FS1
+MDL-00269,MDL,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves reverting a previous change and re",LLM,ollama,llama3,FS1
+MDL-00279,MDL,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves extracting icons from TinyMCE 4",LLM,ollama,llama3,FS1
+MDL-00283,MDL,8.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which appears to be a relatively straightforward CS",LLM,ollama,llama3,FS1
+MDL-00324,MDL,2.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of lines of code involved, and the",LLM,ollama,llama3,FS1
+MDL-00354,MDL,13.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate takes into account the simplicity of the changes required to improve accessibility on the",LLM,ollama,llama3,FS1
+MDL-00380,MDL,3.0,30.0,"Based on the examples provided, I would estimate the Story Points for this user story to be:
+
+**Story Points: 30**
+
+This estimate is based on the complexity of the issue, which involves modifying the ",LLM,ollama,llama3,FS1
+MDL-00381,MDL,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that this is a relatively simple task that requires minimal changes to",LLM,ollama,llama3,FS1
+MDL-00394,MDL,8.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the complexity of the issue, which appears to be a rela",LLM,ollama,llama3,FS1
+MDL-00408,MDL,2.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves updating a filter while deleti",LLM,ollama,llama3,FS1
+MDL-00423,MDL,100.0,50.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 50**
+
+This estimate is based on the complexity of the task, which involves redesigning the f",LLM,ollama,llama3,FS1
+MDL-00450,MDL,8.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the issue, which seems to be relatively straightforward. Th",LLM,ollama,llama3,FS1
+MDL-00459,MDL,1.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps required to reproduce the erro",LLM,ollama,llama3,FS1
+MDL-00463,MDL,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps required to replicate the prob",LLM,ollama,llama3,FS1
+MDL-00503,MDL,20.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves multiple steps and interaction",LLM,ollama,llama3,FS1
+MDL-00505,MDL,20.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the fact that the user story requires styling the filemanager to match the",LLM,ollama,llama3,FS1
+MDL-00532,MDL,5.0,15.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 15**
+
+This estimate is based on the complexity of the task, which involves loading CSS",LLM,ollama,llama3,FS1
+MDL-00557,MDL,5.0,13.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**13**
+
+This estimate is based on the complexity of the issue, which involves drag-and-drop upload of resources ",LLM,ollama,llama3,FS1
+MDL-00565,MDL,13.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the assumption that the task involves updating a single class/file to use ",LLM,ollama,llama3,FS1
+MDL-00574,MDL,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves setting up a new language pack, con",LLM,ollama,llama3,FS1
+MDL-00596,MDL,40.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves integrating the same JavaScript fu",LLM,ollama,llama3,FS1
+MDL-00613,MDL,13.0,20.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+Story Points: 20",LLM,ollama,llama3,FS1
+MDL-00623,MDL,13.0,30.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**30**
+
+This estimate is based on the complexity of the issue, which appears to be a debugging warning related t",LLM,ollama,llama3,FS1
+MDL-00643,MDL,2.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves modifying the self-registration pro",LLM,ollama,llama3,FS1
+MDL-00661,MDL,4.0,13.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**13**
+
+This estimate is based on the complexity of the change, which appears to be a relatively simple renami",LLM,ollama,llama3,FS1
+MDL-00675,MDL,100.0,13.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**Story Points: 13**
+
+This estimate takes into account the complexity of adding new customization settings to the UI",LLM,ollama,llama3,FS1
+MDL-00689,MDL,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves Atto editor and qtype essay pa",LLM,ollama,llama3,FS1
+MDL-00708,MDL,20.0,20.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**20**
+
+This estimate is based on the complexity of the task, which involves writing a documentation page f",LLM,ollama,llama3,FS1
+MDL-00768,MDL,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves identifying and removing incorrect",LLM,ollama,llama3,FS1
+MDL-00779,MDL,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+5",LLM,ollama,llama3,FS1
+MDL-00792,MDL,13.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate takes into account the complexity of the issue, which seems to be related to the Atto ",LLM,ollama,llama3,FS1
+MDL-00814,MDL,13.0,15.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**15**
+
+This estimate takes into account the fact that the issue is specific to a particular platform (iOS 7)",LLM,ollama,llama3,FS1
+MDL-00826,MDL,20.0,15.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**Story Points: 15**",LLM,ollama,llama3,FS1
+MDL-00844,MDL,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be a debugging task to identify t",LLM,ollama,llama3,FS1
+MDL-00846,MDL,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves implementing an admin tool defined in MD",LLM,ollama,llama3,FS1
+MDL-00862,MDL,20.0,15.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**15**
+
+This estimate takes into account the complexity of creating a class that represents a rule in the d",LLM,ollama,llama3,FS1
+MDL-00869,MDL,40.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**8**
+
+This estimate is based on the complexity of implementing an event observer, which requires a good understandi",LLM,ollama,llama3,FS1
+MDL-00877,MDL,40.0,40.0,"Based on the complexity and scope of the user story, I estimate the Story Points to be:
+
+**40**
+
+This estimate is based on the fact that this user story involves multiple calculations, including calcu",LLM,ollama,llama3,FS1
+MDL-00881,MDL,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which appears to be relatively straightforward and focu",LLM,ollama,llama3,FS1
+MDL-00895,MDL,100.0,20.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**20**
+
+This estimate takes into account the complexity of adding a new feature to the gradebook, specifically t",LLM,ollama,llama3,FS1
+MDL-00896,MDL,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+5",LLM,ollama,llama3,FS1
+MDL-00922,MDL,20.0,16.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**16**
+
+This estimate takes into account the complexity of adding a new column to the scales table, creating a U",LLM,ollama,llama3,FS1
+MDL-00957,MDL,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+The reason for this estimate is that the issue seems to be a relatively minor bug fix, requiring only a s",LLM,ollama,llama3,FS1
+MDL-00975,MDL,40.0,20.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**20**
+
+This estimate is based on the complexity of the feature, which involves implementing a new filter by dat",LLM,ollama,llama3,FS1
+MDL-00982,MDL,20.0,25.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**25**
+
+This estimate is based on the complexity of the issue, the need to update reports to exclude empty grade",LLM,ollama,llama3,FS1
+MDL-01008,MDL,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+The reason for this estimate is that the task involves updating a library (Compatible password hashing) t",LLM,ollama,llama3,FS1
+MDL-01041,MDL,3.0,13.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**13**
+
+This estimate is based on the complexity of the task, which involves reviewing and updating multiple fun",LLM,ollama,llama3,FS1
+MDL-01045,MDL,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate takes into account the complexity of assigning competencies to a user learning plan, which ",LLM,ollama,llama3,FS1
+MDL-01088,MDL,1.0,2.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**2**
+
+This estimate is based on the complexity of the task, which involves adding a breadcrumb navigation fe",LLM,ollama,llama3,FS1
+MDL-01108,MDL,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the feature, which involves adding a new option to the plan d",LLM,ollama,llama3,FS1
+MDL-01149,MDL,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the event trigger, which involves multiple scenarios (viewing",LLM,ollama,llama3,FS1
+MDL-01157,MDL,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves creating a new model and populating ",LLM,ollama,llama3,FS1
+XD-00022,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves building a script that creates ",LLM,ollama,llama3,FS1
+XD-00032,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves implementing a Spring Integrati",LLM,ollama,llama3,FS1
+XD-00078,XD,1.0,2.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**2**
+
+The issue seems to be related to a missing plugin or class, which is a relatively simple problem to fi",LLM,ollama,llama3,FS1
+XD-00093,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+This estimate is based on the fact that the story is relatively straightforward and involves adding a depende",LLM,ollama,llama3,FS1
+XD-00104,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which appears to be similar to Example 3: Crea",LLM,ollama,llama3,FS1
+XD-00169,XD,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+8",LLM,ollama,llama3,FS1
+XD-00211,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the story requires the implementation of a new source module, which involves adding confi",LLM,ollama,llama3,FS1
+XD-00258,XD,8.0,2.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 2**
+
+This estimate is based on the fact that the user story is related to testing, which is ",LLM,ollama,llama3,FS1
+XD-00304,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the feature, which involves storing a job definition in Redis",LLM,ollama,llama3,FS1
+XD-00320,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the fact that the user story involves refactoring the existing `DefaultStr",LLM,ollama,llama3,FS1
+XD-00325,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**5**
+
+This estimate takes into account the complexity of implementing proper exceptions for common error cases on S",LLM,ollama,llama3,FS1
+XD-00335,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This is because the user story involves updating multiple sections of the Streams Chapter, including crea",LLM,ollama,llama3,FS1
+XD-00368,XD,2.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 2**
+
+This estimate is based on the complexity of the task, which involves creating tes",LLM,ollama,llama3,FS1
+XD-00439,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves adding a new shell command to delete",LLM,ollama,llama3,FS1
+XD-00534,XD,2.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This is because the user story requires not only adding the ""rabbit"" module to the list, but also crea",LLM,ollama,llama3,FS1
+XD-00604,XD,4.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be 2.",LLM,ollama,llama3,FS1
+XD-00606,XD,4.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which is relatively low. The problem is specific t",LLM,ollama,llama3,FS1
+XD-00621,XD,2.0,5.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**5**
+
+This estimate is based on the complexity of the feature, which involves adding support for a new prop",LLM,ollama,llama3,FS1
+XD-00637,XD,4.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of creating a directory structure and moving existing UI code in",LLM,ollama,llama3,FS1
+XD-00673,XD,1.0,5.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**5**
+
+This estimate is based on the complexity of the change, which involves removing a feature (AutoLaunch",LLM,ollama,llama3,FS1
+XD-00702,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves creating integration tests that",LLM,ollama,llama3,FS1
+XD-00725,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves re-enabling support for tapping lab",LLM,ollama,llama3,FS1
+XD-00771,XD,10.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves reviewing and bringing up to par the",LLM,ollama,llama3,FS1
+XD-00782,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves integrating Spring XD with Spring In",LLM,ollama,llama3,FS1
+XD-00809,XD,1.0,1.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**1**
+
+The reason for this estimate is that the task appears to be a relatively simple fix of hardcoded values i",LLM,ollama,llama3,FS1
+XD-00817,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate takes into account the complexity of adding a new query feature to the aggregate count",LLM,ollama,llama3,FS1
+XD-00874,XD,10.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the story, which involves creating a Spring application conte",LLM,ollama,llama3,FS1
+XD-00885,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves a missing dependency (guava-11",LLM,ollama,llama3,FS1
+XD-00895,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the feature, which involves supporting compression when ",LLM,ollama,llama3,FS1
+XD-00901,XD,4.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the UI implementation, the need to expand the REST endpoint t",LLM,ollama,llama3,FS1
+XD-00924,XD,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves updating the JavaScript code to use",LLM,ollama,llama3,FS1
+XD-00938,XD,15.0,6.0,"Based on the examples provided, I estimate the Story Points for this user story to be 6.",LLM,ollama,llama3,FS1
+XD-00960,XD,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be 2.",LLM,ollama,llama3,FS1
+XD-00983,XD,4.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that this user story is similar to Example 1, which also involves crea",LLM,ollama,llama3,FS1
+XD-01009,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+This estimate is based on the complexity of adding test coverage to MQTT modules, which may require some crea",LLM,ollama,llama3,FS1
+XD-01023,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which involves removing validation logic that was",LLM,ollama,llama3,FS1
+XD-01054,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+The reason for this estimate is that the user story involves refactoring and simplifying the JobPlugin, which",LLM,ollama,llama3,FS1
+XD-01058,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This is because the story requires standardization across multiple modules, which implies a higher leve",LLM,ollama,llama3,FS1
+XD-01074,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves nodes not connecting with the admin",LLM,ollama,llama3,FS1
+XD-01080,XD,1.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**2**
+
+This estimate is based on the fact that the update involves changing dependencies to a new version of s",LLM,ollama,llama3,FS1
+XD-01083,XD,2.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**8**
+
+This estimate is based on the complexity of adding ModuleOptions support for Rabbit sink, which is a ",LLM,ollama,llama3,FS1
+XD-01100,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This is because the user story involves fixing an exception in the filejdbc batch job, which may req",LLM,ollama,llama3,FS1
+XD-01115,XD,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which involves updating the configuration fo",LLM,ollama,llama3,FS1
+XD-01142,XD,5.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**2**
+
+The reason for this estimate is that the user story requires making changes to the AbstractShellIntegra",LLM,ollama,llama3,FS1
+XD-01143,XD,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+The reason for this estimate is that the user story is relatively simple and straightforward, involving t",LLM,ollama,llama3,FS1
+XD-01160,XD,7.0,8.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**8**
+
+This estimate takes into account the complexity of the issue, the need to consider multiple options fo",LLM,ollama,llama3,FS1
+XD-01200,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the feature, which is relatively straightforward and doesn'",LLM,ollama,llama3,FS1
+XD-01243,XD,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+The reason for this estimate is that the story involves refactoring code, renaming classes and methods, a",LLM,ollama,llama3,FS1
+XD-01258,XD,8.0,5.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**5**
+
+This estimate is based on the complexity of the refactoring required to remove the shared module cont",LLM,ollama,llama3,FS1
+XD-01270,XD,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the issue, which appears to be a relatively simple configurat",LLM,ollama,llama3,FS1
+XD-01336,XD,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a specific module (http) that l",LLM,ollama,llama3,FS1
+XD-01351,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that the user story is focused on adding a test to ensure the correlat",LLM,ollama,llama3,FS1
+XD-01379,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the complexity of the issue, which is relatively low. T",LLM,ollama,llama3,FS1
+XD-01415,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the fact that the issue is specific to a particular combination of Hadoop ",LLM,ollama,llama3,FS1
+XD-01428,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves multiple components and potent",LLM,ollama,llama3,FS1
+XD-01436,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves updating the batch wordcount s",LLM,ollama,llama3,FS1
+XD-01449,XD,2.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the fact that the change is relatively minor, involving only a rename of a",LLM,ollama,llama3,FS1
+XD-01468,XD,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the issue, which involves handling a module failure and updat",LLM,ollama,llama3,FS1
+XD-01494,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a parsing problem with a spe",LLM,ollama,llama3,FS1
+XD-01514,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate takes into account the complexity of adding real-time information to the container matching",LLM,ollama,llama3,FS1
+XD-01538,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves modularizing angular app module",LLM,ollama,llama3,FS1
+XD-01592,XD,1.0,5.0,"Based on the examples provided, I would estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the fact that the issue is related to a specific CLI command (module dele",LLM,ollama,llama3,FS1
+XD-01616,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves exposing configurations for multiple",LLM,ollama,llama3,FS1
+XD-01635,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the feature, which involves adding a new transport option (in",LLM,ollama,llama3,FS1
+XD-01641,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the user story, which involves providing job deployment ",LLM,ollama,llama3,FS1
+XD-01665,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the change required, which involves altering the behavior of ",LLM,ollama,llama3,FS1
+XD-01680,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves connecting to a remote Redis instan",LLM,ollama,llama3,FS1
+XD-01690,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves combining multiple tables into one",LLM,ollama,llama3,FS1
+XD-01736,XD,4.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+The reason for this estimate is that this user story requires documenting three specific modules (json",LLM,ollama,llama3,FS1
+XD-01743,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves integrating two existing module",LLM,ollama,llama3,FS1
+XD-01778,XD,4.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves modifying the DefaultStateCalc",LLM,ollama,llama3,FS1
+XD-01801,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves identifying and removing duplic",LLM,ollama,llama3,FS1
+XD-01808,XD,3.0,15.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Add stream state tests**
+Story Points: 15",LLM,ollama,llama3,FS1
+XD-01829,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the issue seems to be a complex one, involving multiple dependencies and versions, which ",LLM,ollama,llama3,FS1
+XD-01854,XD,4.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves debugging and fixing a memory leak,",LLM,ollama,llama3,FS1
+XD-01877,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+(Note: I've considered the complexity and effort required to reorganize the TOC for manual, which seems to be",LLM,ollama,llama3,FS1
+XD-01918,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This is because the issue is related to a specific functionality (FilePollHdfs) that sporadically fa",LLM,ollama,llama3,FS1
+XD-01930,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves splitting a single `build.gradle` file i",LLM,ollama,llama3,FS1
+XD-01944,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which is relatively low. The user story is focuse",LLM,ollama,llama3,FS1
+XD-01951,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**5**
+
+This is because the story involves implementing a new message bus (KafkaMessageBus) and supporting classes, a",LLM,ollama,llama3,FS1
+XD-01997,XD,1.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the feature, which involves supporting Spring Boot's sin",LLM,ollama,llama3,FS1
+XD-02000,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+(Note: I've considered the complexity of the task, the amount of work required, and the level of innovation i",LLM,ollama,llama3,FS1
+XD-02012,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves setting up a CI build process to c",LLM,ollama,llama3,FS1
+XD-02013,XD,8.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the fact that the user story requires research and documentation, which may i",LLM,ollama,llama3,FS1
+XD-02103,XD,1.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This is because the user story involves varying the number of producers, which is similar to Example 3",LLM,ollama,llama3,FS1
+XD-02124,XD,2.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This is because the user story involves varying the number of consumers, which is similar to Example 3",LLM,ollama,llama3,FS1
+XD-02195,XD,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves creating a new acceptance CI test ",LLM,ollama,llama3,FS1
+XD-02209,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the fact that the task involves updating a UI component (""About"" section) wit",LLM,ollama,llama3,FS1
+XD-02252,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the fact that the story involves profiling and micro-benchmarking the Tupl",LLM,ollama,llama3,FS1
+XD-02284,XD,3.0,3.0,"Based on the examples provided, I would estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the assumption that the ""gauge"" sink module is a relatively simple modu",LLM,ollama,llama3,FS1
+XD-02297,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the feature, which involves adding concurrency and compressio",LLM,ollama,llama3,FS1
+XD-02299,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of defining developer-facing interfaces for Reactor Stream proce",LLM,ollama,llama3,FS1
+XD-02311,XD,8.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves the interaction between the batc",LLM,ollama,llama3,FS1
+XD-02320,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the feature being added (Request/Reply support to Kafka messa",LLM,ollama,llama3,FS1
+XD-02322,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a configuration or build ",LLM,ollama,llama3,FS1
+XD-02337,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the fact that the user story involves adding integration tests for a specific",LLM,ollama,llama3,FS1
+XD-02347,XD,1.0,1.0,1,LLM,ollama,llama3,FS1
+XD-02364,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves creating a new Sink module that capt",LLM,ollama,llama3,FS1
+XD-02382,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate takes into account the complexity of setting up YARN on EC2, deploying XD on YARN, and en",LLM,ollama,llama3,FS1
+XD-02385,XD,1.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This is because the user story involves upgrading two modules (_reactor-ip_ and _syslog_) to a new v",LLM,ollama,llama3,FS1
+XD-02395,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be related to logging config",LLM,ollama,llama3,FS1
+XD-02439,XD,1.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**8**
+
+The reason for this estimate is that the user story requires updating the deployment guide, whi",LLM,ollama,llama3,FS1
+XD-02470,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+5",LLM,ollama,llama3,FS1
+XD-02486,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves removing a dependency (jline 2.11) f",LLM,ollama,llama3,FS1
+XD-02514,XD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This is because the user story involves building a batch job sample using Spark MLLib, which is a co",LLM,ollama,llama3,FS1
+XD-02588,XD,2.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This is because the issue is similar to Example 2, where some configuration options are not being retriev",LLM,ollama,llama3,FS1
+XD-02631,XD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This is because the issue seems to be related to the environment variables and the way the XD components ",LLM,ollama,llama3,FS1
+XD-02639,XD,1.0,1.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**1**
+
+This user story appears to be a relatively small and straightforward task, requiring the addition of a si",LLM,ollama,llama3,FS1
+XD-02676,XD,2.0,2.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**2**
+
+This estimate is based on the complexity of the issue, which appears to be related to the shutdown of ",LLM,ollama,llama3,FS1
+XD-02690,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the feature, which involves adding a new option to the HDFS s",LLM,ollama,llama3,FS1
+XD-02697,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the complexity of the task, which involves certifying Spring ",LLM,ollama,llama3,FS1
+XD-02755,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves refactoring the MessageBus to opti",LLM,ollama,llama3,FS1
+XD-02760,XD,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+5",LLM,ollama,llama3,FS1
+XD-02804,XD,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This is because the user story involves profiling and implementing performance optimizations for TupleC",LLM,ollama,llama3,FS1
+XD-02823,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate takes into account the complexity of the feature, which involves persisting deployment",LLM,ollama,llama3,FS1
+XD-02836,XD,5.0,8.0,"Based on the examples provided, I would estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue described, which involves debugging and troub",LLM,ollama,llama3,FS1
+XD-02878,XD,1.0,1.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**1**
+
+The reason for this estimate is that the task involves backporting stability improvements, which seems ",LLM,ollama,llama3,FS1
+XD-02883,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be a specific bug or limitation i",LLM,ollama,llama3,FS1
+XD-02932,XD,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+The reason for this estimate is that the story requires setting up a Spark standalone cluster on the CI",LLM,ollama,llama3,FS1
+XD-02957,XD,8.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the fact that the story involves publishing performance benchmarks, which see",LLM,ollama,llama3,FS1
+XD-02983,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that the user story involves upgrading to a specific version of Spring",LLM,ollama,llama3,FS1
+XD-03009,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the fact that the change is relatively minor and only i",LLM,ollama,llama3,FS1
+XD-03018,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate takes into account the complexity of the change, which involves modifying the logging confi",LLM,ollama,llama3,FS1
+XD-03036,XD,2.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves creating an equivalent library ",LLM,ollama,llama3,FS1
+XD-03052,XD,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+The issue described is relatively minor and cosmetic, affecting only the syntax highlighting and language",LLM,ollama,llama3,FS1
+XD-03108,XD,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the complexity of setting up CI infrastructure for a specific repository, whi",LLM,ollama,llama3,FS1
+XD-03121,XD,1.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves publishing an image to DockerHub",LLM,ollama,llama3,FS1
+XD-03129,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate takes into account the complexity of creating a public screencast, which may require some",LLM,ollama,llama3,FS1
+XD-03151,XD,2.0,2.0,"Based on the examples provided, I would estimate the Story Points for the given user story as:
+
+**2**
+
+The reason for this estimate is that the task involves porting a module from Spring XD to the s-c",LLM,ollama,llama3,FS1
+XD-03182,XD,5.0,3.0,"Based on the examples provided, I would estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the fact that the story is a spike, which implies a short investigation",LLM,ollama,llama3,FS1
+XD-03209,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of adding a search box to the Admin UI for Deployments page, whi",LLM,ollama,llama3,FS1
+XD-03220,XD,8.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the fact that the user story is relatively straightforward and does not re",LLM,ollama,llama3,FS1
+XD-03244,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the complexity of the issue, which appears to be relate",LLM,ollama,llama3,FS1
+XD-03268,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This is because the user story is focused on enhancing integration test coverage for Lattice SPI, wh",LLM,ollama,llama3,FS1
+XD-03279,XD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves refactoring code to replace a codec ",LLM,ollama,llama3,FS1
+XD-03292,XD,8.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the complexity of adding TAP (Tap and Play) support for the Rabbit binder, wh",LLM,ollama,llama3,FS1
+XD-03319,XD,2.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This is because the task involves porting a module from XD to s-c-s repo, which is a relatively straightf",LLM,ollama,llama3,FS1
+XD-03334,XD,1.0,4.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 4**
+
+This estimate is based on the complexity of the task, which involves verifying th",LLM,ollama,llama3,FS1
+XD-03352,XD,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of porting a module from XD to s-c-s repo, which seems to b",LLM,ollama,llama3,FS1
+XD-03353,XD,1.0,1.0,1,LLM,ollama,llama3,FS1
+XD-03374,XD,2.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**2**
+
+The reason for this estimate is that the task involves porting a module from Spring XD to Spring XD'",LLM,ollama,llama3,FS1
+XD-03404,XD,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate takes into account the complexity of the changes required at the shell/REST level, inc",LLM,ollama,llama3,FS1
+XD-03457,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves improving the clarity of the ""Serv",LLM,ollama,llama3,FS1
+XD-03478,XD,3.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This estimate is based on the fact that the user story involves upgrading a plugin (Ambari) to a new r",LLM,ollama,llama3,FS1
+XD-03484,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the feature, which involves adding partitioning properties fo",LLM,ollama,llama3,FS1
+XD-03485,XD,2.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 2**
+
+This estimate is based on the fact that the issue is specific to a particular cha",LLM,ollama,llama3,FS1
+XD-03490,XD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+The reason for this estimate is that the issue is specific to a particular browser (IE 11) and the admin ",LLM,ollama,llama3,FS1
+XD-03494,XD,5.0,8.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a specific module (batch-hive) f",LLM,ollama,llama3,FS1
+XD-03509,XD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which involves enabling in-line SSL properties as",LLM,ollama,llama3,FS1
+XD-03519,XD,4.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+5",LLM,ollama,llama3,FS1
+CLOV-00008,CLOV,2.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be related to the generation of J",LLM,ollama,llama3,FS1
+CLOV-00060,CLOV,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which involves modifying the default sort order i",LLM,ollama,llama3,FS1
+CLOV-00087,CLOV,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which appears to be relatively straightforward. T",LLM,ollama,llama3,FS1
+CLOV-00101,CLOV,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate takes into account the complexity of reading system properties, handling fallback scenarios",LLM,ollama,llama3,FS1
+CLOV-00113,CLOV,3.0,3.0,"Based on the examples, I estimate the Story Points for this user story to be:
+
+**3**
+
+This is because the task is similar to Examples 3 and 4, which also involve intercepting a Maven plugin and adding",LLM,ollama,llama3,FS1
+CLOV-00164,CLOV,13.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate takes into account the complexity of preparing unit tests, including compiling and ins",LLM,ollama,llama3,FS1
+CLOV-00190,CLOV,20.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate takes into account the complexity of recognizing the Spock @Unroll annotation and its impli",LLM,ollama,llama3,FS1
+CLOV-00194,CLOV,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate takes into account the complexity of reviewing the ADG page layout in the HTML report, in",LLM,ollama,llama3,FS1
+CLOV-00199,CLOV,8.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be related to the instrumentation",LLM,ollama,llama3,FS1
+CLOV-00236,CLOV,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the issue, which appears to be related to a specific error me",LLM,ollama,llama3,FS1
+CLOV-00241,CLOV,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves a specific combination of technolog",LLM,ollama,llama3,FS1
+CLOV-00254,CLOV,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the change, which involves modifying the system to use `Syste",LLM,ollama,llama3,FS1
+CLOV-00257,CLOV,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which involves modifying the display of tooltips ",LLM,ollama,llama3,FS1
+CLOV-00293,CLOV,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves modifying the Maven build process to",LLM,ollama,llama3,FS1
+CLOV-00298,CLOV,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate takes into account the complexity of the issue, the need for a custom solution, and the pot",LLM,ollama,llama3,FS1
+CLOV-00313,CLOV,5.0,20.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**20**
+
+This estimate takes into account the simplicity of the task (""shall be easy - plugging via META-INF/serv",LLM,ollama,llama3,FS1
+CLOV-00352,CLOV,1.0,1.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**1**
+
+This estimate is based on the simplicity of the task, which involves removing a deprecated argument, upda",LLM,ollama,llama3,FS1
+CLOV-00370,CLOV,2.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+My reasoning is that the user story involves analysis and publishing, which seems to be a relatively",LLM,ollama,llama3,FS1
+CLOV-00381,CLOV,5.0,11.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**11**
+
+This estimate is based on the complexity of the issue, which involves instrumentation of Groovy AST node",LLM,ollama,llama3,FS1
+TIMOB-00044,TIMOB,34.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate takes into account the complexity of adding multiple polygons to the MapView, including the",LLM,ollama,llama3,FS1
+TIMOB-00054,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves the Android build process and the d",LLM,ollama,llama3,FS1
+TIMOB-00075,TIMOB,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a specific problem with JavaSc",LLM,ollama,llama3,FS1
+TIMOB-00087,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves memory management and the interacti",LLM,ollama,llama3,FS1
+TIMOB-00117,TIMOB,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be related to a specific API (Ti.",LLM,ollama,llama3,FS1
+TIMOB-00121,TIMOB,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps required to reproduce the prob",LLM,ollama,llama3,FS1
+TIMOB-00123,TIMOB,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves creating an AVD for a specific reso",LLM,ollama,llama3,FS1
+TIMOB-00133,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the task involves defining a document that outlines coding standards for Java, similar to",LLM,ollama,llama3,FS1
+TIMOB-00148,TIMOB,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves intermittent failures to launch the",LLM,ollama,llama3,FS1
+TIMOB-00152,TIMOB,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 3**
+
+My reasoning is as follows:
+
+* The issue is specific to Android and tablets, whic",LLM,ollama,llama3,FS1
+TIMOB-00249,TIMOB,12.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the implementation, which involves adding properties and",LLM,ollama,llama3,FS1
+TIMOB-00263,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Android: Animation code review**
+**Story Points: 8**
+
+This estimate is based on the complexity of the task",LLM,ollama,llama3,FS1
+TIMOB-00325,TIMOB,21.0,15.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**15**
+
+This estimate is based on the complexity of the implementation, which involves implementing at least thr",LLM,ollama,llama3,FS1
+TIMOB-00341,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**8**
+
+This estimate is based on the complexity of the feature, which involves integrating with other applic",LLM,ollama,llama3,FS1
+TIMOB-00384,TIMOB,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves modifying the TiUIText.java file to",LLM,ollama,llama3,FS1
+TIMOB-00391,TIMOB,8.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a specific accessibility-relat",LLM,ollama,llama3,FS1
+TIMOB-00414,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of changes required to the build script",LLM,ollama,llama3,FS1
+TIMOB-00435,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps required to reproduce the prob",LLM,ollama,llama3,FS1
+TIMOB-00447,TIMOB,8.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the issue, which appears to be a specific bug or missing feat",LLM,ollama,llama3,FS1
+TIMOB-00458,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a platform-specific event listener ",LLM,ollama,llama3,FS1
+TIMOB-00513,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be a relatively straightforward b",LLM,ollama,llama3,FS1
+TIMOB-00536,TIMOB,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps to reproduce, and the fact tha",LLM,ollama,llama3,FS1
+TIMOB-00550,TIMOB,8.0,13.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**13**
+
+This estimate is based on the complexity of the issue, which involves upgrading Appcelerator Studio and ",LLM,ollama,llama3,FS1
+TIMOB-00572,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the issue seems to be related to the appearance of the Date Picker, which is a complex co",LLM,ollama,llama3,FS1
+TIMOB-00578,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps required to reproduce the",LLM,ollama,llama3,FS1
+TIMOB-00635,TIMOB,13.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate takes into account the complexity of the issue, the scope of the fix, and the potentia",LLM,ollama,llama3,FS1
+TIMOB-00637,TIMOB,13.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves accessing and handling the `currentU",LLM,ollama,llama3,FS1
+TIMOB-00639,TIMOB,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which seems to be relatively straightforward. The ",LLM,ollama,llama3,FS1
+TIMOB-00643,TIMOB,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be a specific scrolling behavior ",LLM,ollama,llama3,FS1
+TIMOB-00649,TIMOB,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a specific scenario (project resour",LLM,ollama,llama3,FS1
+TIMOB-00681,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a regression in the CLI behavior wh",LLM,ollama,llama3,FS1
+TIMOB-00700,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves enabling a new property (`Ti.Platfor",LLM,ollama,llama3,FS1
+TIMOB-00773,TIMOB,13.0,15.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 15**
+
+This estimate is based on the complexity of the task, which appears to be implem",LLM,ollama,llama3,FS1
+TIMOB-00811,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the implementation, which involves implementing properties an",LLM,ollama,llama3,FS1
+TIMOB-00817,TIMOB,1.0,8.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**8**
+
+This is because the issue is related to the display of page controls in a ScrollableView, which is a c",LLM,ollama,llama3,FS1
+TIMOB-00846,TIMOB,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate takes into account the complexity of the issue, the number of steps required to reproduce t",LLM,ollama,llama3,FS1
+TIMOB-00889,TIMOB,8.0,13.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**13**
+
+This estimate takes into account the complexity of the issue, the number of steps required to reproduce ",LLM,ollama,llama3,FS1
+TIMOB-00896,TIMOB,13.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a regression in Alloy projects",LLM,ollama,llama3,FS1
+TIMOB-00937,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps required to reproduce the prob",LLM,ollama,llama3,FS1
+TIMOB-00938,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a crash caused by a reference to `T",LLM,ollama,llama3,FS1
+TIMOB-00948,TIMOB,2.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the simplicity of the task, which is to update the master branch of titanium_mo",LLM,ollama,llama3,FS1
+TIMOB-00956,TIMOB,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This is because the issue is relatively straightforward and involves adding a specific method to a module",LLM,ollama,llama3,FS1
+TIMOB-00957,TIMOB,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the feature, which is relatively low. The module generator al",LLM,ollama,llama3,FS1
+TIMOB-00976,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves packaging for iOS and encountering ",LLM,ollama,llama3,FS1
+TIMOB-00989,TIMOB,1.0,15.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 15**
+
+This estimate is based on the complexity of the change, which involves modifying",LLM,ollama,llama3,FS1
+TIMOB-01005,TIMOB,8.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that the user story involves removing a single API, which is a relativ",LLM,ollama,llama3,FS1
+TIMOB-01032,TIMOB,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the user story involves a build error that occurs when the SDK version in the tiapp.xml a",LLM,ollama,llama3,FS1
+TIMOB-01037,TIMOB,5.0,13.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**13**
+
+This estimate is based on the complexity of the issue, which involves crashes related to std::unordered_",LLM,ollama,llama3,FS1
+TIMOB-01080,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of variables involved (image array, dur",LLM,ollama,llama3,FS1
+TIMOB-01111,TIMOB,13.0,13.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**13**
+
+This estimate takes into account the complexity of the issue, which involves nested fragments and the ma",LLM,ollama,llama3,FS1
+TIMOB-01136,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the fact that the issue is related to a build error in Jenkins CI, which is a",LLM,ollama,llama3,FS1
+TIMOB-01143,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+The reason for this estimate is that the issue seems to be a specific and relatively simple problem with ",LLM,ollama,llama3,FS1
+TIMOB-01148,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of components involved (Android, Titani",LLM,ollama,llama3,FS1
+TIMOB-01163,TIMOB,8.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the user story involves updating the documentation to include Windows-specific APIs, whic",LLM,ollama,llama3,FS1
+TIMOB-01207,TIMOB,8.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that the user story is relatively simple and only requires adding a ne",LLM,ollama,llama3,FS1
+TIMOB-01268,TIMOB,3.0,5.0,"Based on the examples provided, I would estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be a cosmetic problem with ",LLM,ollama,llama3,FS1
+TIMOB-01279,TIMOB,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the fact that the issue is specific to Windows and involves fixing a property (",LLM,ollama,llama3,FS1
+TIMOB-01312,TIMOB,21.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate takes into account the complexity of rebuilding multiple static libraries in Titanium Mobil",LLM,ollama,llama3,FS1
+TIMOB-01313,TIMOB,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves implementing a new event on the List",LLM,ollama,llama3,FS1
+TIMOB-01364,TIMOB,13.0,15.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+Story Points: 15",LLM,ollama,llama3,FS1
+TIMOB-01404,TIMOB,21.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**8**
+
+This estimate is based on the complexity of implementing Material Design Custom Animations, which lik",LLM,ollama,llama3,FS1
+TIMOB-01416,TIMOB,8.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This is because the description indicates that the feature is already implemented on iOS, and the impleme",LLM,ollama,llama3,FS1
+TIMOB-01417,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves a specific behavior of the push not",LLM,ollama,llama3,FS1
+TIMOB-01419,TIMOB,8.0,5.0,"Based on the project context and the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate takes into account the complexity of the issue, the lack of er",LLM,ollama,llama3,FS1
+TIMOB-01439,TIMOB,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the fact that this user story involves renaming method/event names on both the ",LLM,ollama,llama3,FS1
+TIMOB-01442,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+5",LLM,ollama,llama3,FS1
+TIMOB-01444,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be related to image assets and th",LLM,ollama,llama3,FS1
+TIMOB-01447,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of components involved (app, watch-app,",LLM,ollama,llama3,FS1
+TIMOB-01460,TIMOB,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a straightforward configuratio",LLM,ollama,llama3,FS1
+TIMOB-01462,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of updating the node-ios-device with the latest Node.js com",LLM,ollama,llama3,FS1
+TIMOB-01464,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This is because the user story is similar to Example 4, which also involves generating missing app icons ",LLM,ollama,llama3,FS1
+TIMOB-01502,TIMOB,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This is because the issue is related to a specific edge case (launching an app in debug mode while the de",LLM,ollama,llama3,FS1
+TIMOB-01552,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 5**
+
+This estimate is based on the complexity of the task, which involves improving the firs",LLM,ollama,llama3,FS1
+TIMOB-01556,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate takes into account the complexity of updating the KitchenSink test suite to work with the l",LLM,ollama,llama3,FS1
+TIMOB-01567,TIMOB,1.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 8**
+
+This estimate is based on the complexity of the task, which involves integrating ",LLM,ollama,llama3,FS1
+TIMOB-01594,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the issue seems to be related to a specific version of the SDK (5.0.2.GA) and the error m",LLM,ollama,llama3,FS1
+TIMOB-01641,TIMOB,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 3**
+
+My reasoning is as follows:
+
+* The user story is about adding a feature to Android, spe",LLM,ollama,llama3,FS1
+TIMOB-01645,TIMOB,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a specific bug fix related to ",LLM,ollama,llama3,FS1
+TIMOB-01658,TIMOB,5.0,6.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**6**
+
+This estimate is based on the complexity of the task, which involves updating the font lookup mechanism f",LLM,ollama,llama3,FS1
+TIMOB-01693,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a specific problem with the `Ti.App",LLM,ollama,llama3,FS1
+TIMOB-01717,TIMOB,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that the issue is specific to Windows and affects a single event (sele",LLM,ollama,llama3,FS1
+TIMOB-01742,TIMOB,8.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a specific bug or hang in a pa",LLM,ollama,llama3,FS1
+TIMOB-01746,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves setting up a PR builder to run again",LLM,ollama,llama3,FS1
+TIMOB-01765,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves debugging and resolving a specific ",LLM,ollama,llama3,FS1
+TIMOB-01783,TIMOB,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, the number of steps required to reproduce the prob",LLM,ollama,llama3,FS1
+TIMOB-01785,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves Hyperloop and platform-specific fol",LLM,ollama,llama3,FS1
+TIMOB-01793,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be a specific problem with the Ti",LLM,ollama,llama3,FS1
+TIMOB-01794,TIMOB,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that the issue is related to documentation, which is a relatively stra",LLM,ollama,llama3,FS1
+TIMOB-01806,TIMOB,13.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves memory consumption and object creat",LLM,ollama,llama3,FS1
+TIMOB-01820,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves fixing a bug in the File.write meth",LLM,ollama,llama3,FS1
+TIMOB-01935,TIMOB,5.0,3.0,"Based on the provided examples, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be related to the interaction bet",LLM,ollama,llama3,FS1
+TIMOB-01938,TIMOB,5.0,8.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of steps to reproduce the problem, a",LLM,ollama,llama3,FS1
+TIMOB-01960,TIMOB,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves accessing Appcelerator AWS storage ",LLM,ollama,llama3,FS1
+TIMOB-01999,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+The reason for this estimate is that the issue described is related to the Properties API, which is a spe",LLM,ollama,llama3,FS1
+TIMOB-02014,TIMOB,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be related to building modules ",LLM,ollama,llama3,FS1
+TIMOB-02020,TIMOB,8.0,13.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**13**
+
+This estimate is based on the complexity of the task, which involves allowing developers to require Java",LLM,ollama,llama3,FS1
+TIMOB-02081,TIMOB,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This is because the issue is related to the way Titanium CommonJS modules are required, which is a comple",LLM,ollama,llama3,FS1
+TIMOB-02083,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This is because the issue described is related to the way Titanium CommonJS modules handle relative file ",LLM,ollama,llama3,FS1
+TIMOB-02093,TIMOB,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves parity with other platforms (Androi",LLM,ollama,llama3,FS1
+TIMOB-02102,TIMOB,8.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the user story is requesting a new feature for the Windows Phone platform, which involves",LLM,ollama,llama3,FS1
+TIMOB-02127,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves understanding the underlying cause ",LLM,ollama,llama3,FS1
+TIMOB-02138,TIMOB,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+The reason for this estimate is that the user story involves a release of the SDK containing two bug fixe",LLM,ollama,llama3,FS1
+TIMOB-02161,TIMOB,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves updating the ioslib to recognize gl",LLM,ollama,llama3,FS1
+TIMOB-02186,TIMOB,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+The task requires minor changes to the module, updating the version, API version, and minimum SDK version",LLM,ollama,llama3,FS1
+DURACLOUD-00043,DURACLOUD,2.0,6.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Multi-thread the Image Conversion Service**
+**Story Points: 6**
+
+This estimate is based on the complexity ",LLM,ollama,llama3,FS1
+DURACLOUD-00072,DURACLOUD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves adding a new feature to the DuraClou",LLM,ollama,llama3,FS1
+DURACLOUD-00095,DURACLOUD,13.0,8.0,"Based on the project context and the examples provided, I estimate the Story Points for the user story as follows:
+
+**Server Health and Status Monitoring**: 8",LLM,ollama,llama3,FS1
+DURACLOUD-00100,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves intermittent errors, a large n",LLM,ollama,llama3,FS1
+DURACLOUD-00146,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that this user story involves modifying the DuraAdmin application to c",LLM,ollama,llama3,FS1
+DURACLOUD-00156,DURACLOUD,1.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This is because the user story involves a more complex interaction with the DuraCloud Administrator in",LLM,ollama,llama3,FS1
+DURACLOUD-00200,DURACLOUD,2.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+Story Points: 8",LLM,ollama,llama3,FS1
+DURACLOUD-00211,DURACLOUD,3.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 8**
+
+This estimate is based on the complexity of the feature, which involves implementing se",LLM,ollama,llama3,FS1
+DURACLOUD-00212,DURACLOUD,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the feature, which involves creating a new REST method, requi",LLM,ollama,llama3,FS1
+DURACLOUD-00214,DURACLOUD,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the change, which involves modifying the Bulk Bit Integrity S",LLM,ollama,llama3,FS1
+DURACLOUD-00218,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Run-away service monitor**
+Story Points: 3",LLM,ollama,llama3,FS1
+DURACLOUD-00225,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the change, which involves modifying the Bit Integrity Servic",LLM,ollama,llama3,FS1
+DURACLOUD-00247,DURACLOUD,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 8**
+
+My reasoning is that this user story involves creating a new service for searching and ",LLM,ollama,llama3,FS1
+DURACLOUD-00254,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves modifying the existing sys",LLM,ollama,llama3,FS1
+DURACLOUD-00276,DURACLOUD,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the task, which involves checking for valid characters and pr",LLM,ollama,llama3,FS1
+DURACLOUD-00281,DURACLOUD,2.0,1.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**1**
+
+The task involves creating a new Maven project that holds constant values required across other projec",LLM,ollama,llama3,FS1
+DURACLOUD-00296,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves modifying the login URL behavior to",LLM,ollama,llama3,FS1
+DURACLOUD-00303,DURACLOUD,1.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 5**
+
+This estimate is based on the complexity of the task, which involves updating the",LLM,ollama,llama3,FS1
+DURACLOUD-00313,DURACLOUD,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the requirement, which involves distinguishing between servic",LLM,ollama,llama3,FS1
+DURACLOUD-00339,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+Story Points: 3",LLM,ollama,llama3,FS1
+DURACLOUD-00342,DURACLOUD,3.0,5.0,"Based on the project context and the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate takes into account the complexity of creating a UI for managing spa",LLM,ollama,llama3,FS1
+DURACLOUD-00357,DURACLOUD,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves adding messaging over the durastore ",LLM,ollama,llama3,FS1
+DURACLOUD-00366,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves introducing a new flag and modifyin",LLM,ollama,llama3,FS1
+DURACLOUD-00399,DURACLOUD,1.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves fixing a bug that causes an exce",LLM,ollama,llama3,FS1
+DURACLOUD-00443,DURACLOUD,1.0,8.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**8**
+
+This estimate is based on the complexity of the issue, the number of environments and browsers involve",LLM,ollama,llama3,FS1
+DURACLOUD-00489,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves modifying the UI to handle large re",LLM,ollama,llama3,FS1
+DURACLOUD-00505,DURACLOUD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves adding an option to the Retrieval To",LLM,ollama,llama3,FS1
+DURACLOUD-00509,DURACLOUD,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the task, which appears to be relatively straightforward. The",LLM,ollama,llama3,FS1
+DURACLOUD-00519,DURACLOUD,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves updating the SyncToolUI to provide b",LLM,ollama,llama3,FS1
+DURACLOUD-00583,DURACLOUD,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate takes into account the complexity of the feature, which involves modifying the SyncTool to ",LLM,ollama,llama3,FS1
+DURACLOUD-00606,DURACLOUD,5.0,4.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 4**
+
+This estimate is based on the complexity of the task, which involves integrating ",LLM,ollama,llama3,FS1
+DURACLOUD-00642,DURACLOUD,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be related to the UI layer and th",LLM,ollama,llama3,FS1
+DURACLOUD-00652,DURACLOUD,2.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the issue, which involves checking the source manifest before",LLM,ollama,llama3,FS1
+MULE-00004,MULE,8.0,13.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**13**
+
+This estimate is based on the complexity of the task, which involves including a new module in the Mul",LLM,ollama,llama3,FS1
+MULE-00007,MULE,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the complexity of the issue, which seems to be relative",LLM,ollama,llama3,FS1
+MULE-00027,MULE,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 8**
+
+My reasoning is that this user story involves a broad scope of deprecation, inclu",LLM,ollama,llama3,FS1
+MULE-00044,MULE,13.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves understanding how multiple HTTP o",LLM,ollama,llama3,FS1
+MULE-00048,MULE,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the issue involves a thread leak, which can be complex to diagnose and fix, especially wh",LLM,ollama,llama3,FS1
+MULE-00079,MULE,8.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be related to serialization and p",LLM,ollama,llama3,FS1
+MULE-00133,MULE,3.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 8**
+
+This estimate is based on the complexity of integrating the current Web Services ",LLM,ollama,llama3,FS1
+MULE-00138,MULE,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves concurrency and the need to cr",LLM,ollama,llama3,FS1
+MULE-00147,MULE,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 3**
+
+My reasoning is that this user story involves upgrading Mule to depend on the latest ve",LLM,ollama,llama3,FS1
+MULE-00161,MULE,3.0,8.0,"Based on the project context and the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate takes into account the complexity of the issue, the need to defin",LLM,ollama,llama3,FS1
+MULE-00173,MULE,8.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves dealing with multiple namespaces in",LLM,ollama,llama3,FS1
+MULE-00177,MULE,2.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves error handling and context disposal",LLM,ollama,llama3,FS1
+MULE-00181,MULE,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This is because the story requires a change in the behavior of the Mule deployment process, specific",LLM,ollama,llama3,FS1
+MULE-00183,MULE,5.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves modifying the log output to inc",LLM,ollama,llama3,FS1
+MULE-00260,MULE,13.0,8.0,"Based on the project context and the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves a fundame",LLM,ollama,llama3,FS1
+MULE-00271,MULE,1.0,0.5,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 0.5**
+
+This user story is a simple renaming of a method, which is a relatively minor change.",LLM,ollama,llama3,FS1
+MULE-00272,MULE,8.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves resolving the type of parameters ",LLM,ollama,llama3,FS1
+MULE-00308,MULE,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+The reason for this estimate is that the story seems to be related to a specific configuration or infrast",LLM,ollama,llama3,FS1
+MULE-00313,MULE,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves two types of disposal (undeploy and",LLM,ollama,llama3,FS1
+MULE-00324,MULE,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves adding GPG signature to artifacts, simil",LLM,ollama,llama3,FS1
+MULE-00347,MULE,2.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the API modification required to support domain deployment,",LLM,ollama,llama3,FS1
+MULE-00370,MULE,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves modifying the build descriptors to c",LLM,ollama,llama3,FS1
+MULE-00388,MULE,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the fact that the test is flaky, which requires some investigation and possib",LLM,ollama,llama3,FS1
+MULE-00389,MULE,8.0,8.0,"Based on the project context and the examples provided, I estimate the Story Points for the user story as follows:
+
+**8**
+
+This estimate takes into account the complexity of integrating the AMQP trans",LLM,ollama,llama3,FS1
+MULE-00407,MULE,8.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the complexity of the task, which involves upgrading JUnit an",LLM,ollama,llama3,FS1
+MULE-00436,MULE,3.0,8.0,"Based on the project context and the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate takes into account the complexity of creating a new GitHub projec",LLM,ollama,llama3,FS1
+MULE-00452,MULE,8.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of adding helper properties for the http listener element, whi",LLM,ollama,llama3,FS1
+MULE-00453,MULE,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**8**
+
+This is because the user story involves adding support for TLS (Transport Layer Security) in the HTTP listene",LLM,ollama,llama3,FS1
+MULE-00475,MULE,5.0,5.0,"Based on the project context and the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 5**
+
+This estimate is based on the complexity of creating a serializ",LLM,ollama,llama3,FS1
+MULE-00491,MULE,13.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves code cleanup and merging changes i",LLM,ollama,llama3,FS1
+MULE-00502,MULE,8.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves adding asynchronous support for",LLM,ollama,llama3,FS1
+MULE-00504,MULE,1.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the change, which appears to be relatively straightforward ",LLM,ollama,llama3,FS1
+MULE-00575,MULE,8.0,11.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**11**
+
+This estimate is based on the complexity of the task, which involves modifying the context builder disco",LLM,ollama,llama3,FS1
+MULE-00579,MULE,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the user story involves adding a new attribute to two configuration elements (listener-co",LLM,ollama,llama3,FS1
+MULE-00690,MULE,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves modifying the XSD generator to allo",LLM,ollama,llama3,FS1
+MULE-00702,MULE,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves working around a Spring issue and a",LLM,ollama,llama3,FS1
+MULE-00728,MULE,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the simplicity of the task, which is to remove four validators (domain, ISBN,",LLM,ollama,llama3,FS1
+MULE-00738,MULE,1.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+Story Points: 5",LLM,ollama,llama3,FS1
+MULE-00752,MULE,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves maintaining datatypes when copying ",LLM,ollama,llama3,FS1
+MULE-00765,MULE,2.0,5.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+Story Points: 5",LLM,ollama,llama3,FS1
+MULE-00796,MULE,8.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the feature, which involves sharing a TLS context across mu",LLM,ollama,llama3,FS1
+MULE-00853,MULE,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the fact that the user story is relatively straightforward and does not requi",LLM,ollama,llama3,FS1
+MULE-00876,MULE,1.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 3**
+
+This estimate is based on the complexity of the change, which involves adding a n",LLM,ollama,llama3,FS1
+MESOS-00000,MESOS,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves modifying the Mesos slave to cache e",LLM,ollama,llama3,FS1
+MESOS-00042,MESOS,3.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves writing a parser for perf output t",LLM,ollama,llama3,FS1
+MESOS-00043,MESOS,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate takes into account the complexity of testing different versions of perf, including ker",LLM,ollama,llama3,FS1
+MESOS-00069,MESOS,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the task, which involves adding logging functionality to hand",LLM,ollama,llama3,FS1
+MESOS-00080,MESOS,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+5",LLM,ollama,llama3,FS1
+MESOS-00086,MESOS,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves non-deterministic behavior and pote",LLM,ollama,llama3,FS1
+MESOS-00120,MESOS,3.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves designing the semantics for upd",LLM,ollama,llama3,FS1
+MESOS-00143,MESOS,2.0,8.0,"Based on the complexity and uniqueness of the issue, I estimate the Story Points to be:
+
+**8**
+
+This estimate is based on the fact that the issue involves a race condition between two methods, which c",LLM,ollama,llama3,FS1
+MESOS-00147,MESOS,1.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves modifying the `post-reviews.py",LLM,ollama,llama3,FS1
+MESOS-00159,MESOS,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the description of the user story includes a segfault with a ""Pure virtual method called""",LLM,ollama,llama3,FS1
+MESOS-00173,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that this user story involves adding a new protobuf message, which is ",LLM,ollama,llama3,FS1
+MESOS-00179,MESOS,8.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that this user story is adding a basic flag to CommandInfo URI protobu",LLM,ollama,llama3,FS1
+MESOS-00186,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves adding a reason to TASK_LOSTs for a ",LLM,ollama,llama3,FS1
+MESOS-00208,MESOS,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the changes required, which involve modifying multiple f",LLM,ollama,llama3,FS1
+MESOS-00222,MESOS,8.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves modifying the Docker containerizer ",LLM,ollama,llama3,FS1
+MESOS-00226,MESOS,3.0,4.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 4**
+
+This estimate is based on the complexity of the change, which appears to be relat",LLM,ollama,llama3,FS1
+MESOS-00250,MESOS,1.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This estimate is based on the complexity of the issue described in the user story, which appears to be",LLM,ollama,llama3,FS1
+MESOS-00254,MESOS,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves:
+
+1. Exporting metrics from the netw",LLM,ollama,llama3,FS1
+MESOS-00265,MESOS,2.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves aggregating resources from multiple",LLM,ollama,llama3,FS1
+MESOS-00276,MESOS,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves adding a new framework to test per",LLM,ollama,llama3,FS1
+MESOS-00290,MESOS,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the change, which involves introducing a new way to specify r",LLM,ollama,llama3,FS1
+MESOS-00300,MESOS,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the fact that this user story requires creating a description of the Doxygen st",LLM,ollama,llama3,FS1
+MESOS-00307,MESOS,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+The reason for this estimate is that the issue seems to be related to a specific test failure, which",LLM,ollama,llama3,FS1
+MESOS-00310,MESOS,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves creating a comprehensive guide for l",LLM,ollama,llama3,FS1
+MESOS-00367,MESOS,13.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+8",LLM,ollama,llama3,FS1
+MESOS-00373,MESOS,5.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This estimate is based on the fact that the story is exploratory in nature, and no specific implementa",LLM,ollama,llama3,FS1
+MESOS-00374,MESOS,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves designing a new functionality for Ma",LLM,ollama,llama3,FS1
+MESOS-00379,MESOS,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This is because designing a new API, especially one that is specific to a particular component like the E",LLM,ollama,llama3,FS1
+MESOS-00413,MESOS,1.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the changes required, which involve updating the Isolator int",LLM,ollama,llama3,FS1
+MESOS-00417,MESOS,2.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves exposing metrics about oversubs",LLM,ollama,llama3,FS1
+MESOS-00446,MESOS,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the user story as:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves creating a URI with a path to the corres",LLM,ollama,llama3,FS1
+MESOS-00485,MESOS,3.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+The reason for this estimate is that the task involves adding move constructors and assignment operato",LLM,ollama,llama3,FS1
+MESOS-00525,MESOS,3.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 2**
+
+This estimate is based on the complexity of the task, which involves documenting ",LLM,ollama,llama3,FS1
+MESOS-00531,MESOS,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate takes into account the complexity of designing support for running the command executor wit",LLM,ollama,llama3,FS1
+MESOS-00538,MESOS,1.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves modifying the scheduler driver to r",LLM,ollama,llama3,FS1
+MESOS-00587,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves adding support for HTTPS requests ",LLM,ollama,llama3,FS1
+MESOS-00588,MESOS,3.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the fact that the user story involves implementing a Proof of Concept (PoC",LLM,ollama,llama3,FS1
+MESOS-00618,MESOS,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves adding a configurable macro to the s",LLM,ollama,llama3,FS1
+MESOS-00639,MESOS,1.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves handling query and fragment pa",LLM,ollama,llama3,FS1
+MESOS-00716,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+The reason for this estimate is that the story seems to be focused on implementing a filtering mecha",LLM,ollama,llama3,FS1
+MESOS-00721,MESOS,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the problem, which involves maintaining integer precision whe",LLM,ollama,llama3,FS1
+MESOS-00741,MESOS,8.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the user story involves implementing a solution to a complex problem, requiring changes t",LLM,ollama,llama3,FS1
+MESOS-00751,MESOS,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the change, which involves modifying the existing endpoints t",LLM,ollama,llama3,FS1
+MESOS-00776,MESOS,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the issue, which involves understanding the behavior of `clos",LLM,ollama,llama3,FS1
+MESOS-00791,MESOS,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which involves fixing a specific problem with JSON",LLM,ollama,llama3,FS1
+MESOS-00811,MESOS,3.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**2**
+
+This estimate is based on the complexity of the code changes required, which appears to be moderate. Th",LLM,ollama,llama3,FS1
+MESOS-00824,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves exposing additional information (Con",LLM,ollama,llama3,FS1
+MESOS-00831,MESOS,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the problem, which involves determining if it's possible to s",LLM,ollama,llama3,FS1
+MESOS-00837,MESOS,2.0,2.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**2**
+
+The reason for this estimate is that the issue is specific to a particular platform (Mac OSX) and is r",LLM,ollama,llama3,FS1
+MESOS-00862,MESOS,2.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves checking the compatibility of isola",LLM,ollama,llama3,FS1
+MESOS-00968,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+This estimate takes into account the complexity of the issue, the need to maintain backwards compati",LLM,ollama,llama3,FS1
+MESOS-01009,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that this user story is similar to Example 4, which involves creating ",LLM,ollama,llama3,FS1
+MESOS-01016,MESOS,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the fact that the change involves moving code from one file to another, which i",LLM,ollama,llama3,FS1
+MESOS-01075,MESOS,1.0,2.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**2**
+
+This is because the issue is specific to running the test in isolation, and it requires some cleanup t",LLM,ollama,llama3,FS1
+MESOS-01082,MESOS,2.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+The reason for this estimate is that the issue is related to GMock warnings, which are relatively minor a",LLM,ollama,llama3,FS1
+MESOS-01100,MESOS,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+3",LLM,ollama,llama3,FS1
+MESOS-01122,MESOS,8.0,5.0,"Based on the complexity and implications of the user story, I estimate the Story Points to be:
+
+**5**
+
+This estimate takes into account the need to consider fairness, resource math, and the coarse-gra",LLM,ollama,llama3,FS1
+MESOS-01124,MESOS,1.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the task, which appears to be relatively straightforward. The",LLM,ollama,llama3,FS1
+MESOS-01180,MESOS,2.0,2.0,I estimate the Story Points for this user story to be: 2,LLM,ollama,llama3,FS1
+MESOS-01204,MESOS,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the description is similar to Example 2, which also involves fixing a test-related issue ",LLM,ollama,llama3,FS1
+MESOS-01209,MESOS,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that the task involves adding a section to the documentation, which is",LLM,ollama,llama3,FS1
+MESOS-01211,MESOS,1.0,1.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**1**
+
+This is a relatively simple task that involves adding a log statement for debugging purposes. The task do",LLM,ollama,llama3,FS1
+MESOS-01241,MESOS,2.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the fact that the task involves updating documentation, which is a relatively s",LLM,ollama,llama3,FS1
+MESOS-01321,MESOS,8.0,8.0,"Based on the project context and the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate takes into account the complexity of adding a new endpoint to ",LLM,ollama,llama3,FS1
+MESOS-01343,MESOS,2.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the user story involves testing the Docker runtime isolator, which may cause disk issues ",LLM,ollama,llama3,FS1
+MESOS-01345,MESOS,5.0,8.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**8**
+
+This estimate is based on the complexity of the task, which involves investigating multiple containe",LLM,ollama,llama3,FS1
+MESOS-01369,MESOS,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This is because the issue involves a complex problem with symlinks, directory replacement, and error hand",LLM,ollama,llama3,FS1
+MESOS-01372,MESOS,2.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**2**
+
+This estimate is based on the complexity of the change, which appears to be relatively straightforward ",LLM,ollama,llama3,FS1
+MESOS-01389,MESOS,1.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+The reason for this estimate is that the task is relatively straightforward and requires minimal coding c",LLM,ollama,llama3,FS1
+MESOS-01396,MESOS,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+The reason for this estimate is that the user story appears to be a relatively straightforward change to ",LLM,ollama,llama3,FS1
+MESOS-01400,MESOS,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This is because the change required is a significant modification to the existing logic of the commit mes",LLM,ollama,llama3,FS1
+MESOS-01436,MESOS,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves adding a new guard to reject calls ",LLM,ollama,llama3,FS1
+MESOS-01516,MESOS,5.0,5.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves adding support for controlling ",LLM,ollama,llama3,FS1
+MESOS-01531,MESOS,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story to be:
+
+**3**
+
+My reasoning is that the story seems to require some analysis and consideration of the implications ",LLM,ollama,llama3,FS1
+MESOS-01571,MESOS,3.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of implementing authentication and authorization for the network",LLM,ollama,llama3,FS1
+MESOS-01589,MESOS,2.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This is because the story seems to be a regression test failure caused by a recent change that prevents t",LLM,ollama,llama3,FS1
+MESOS-01623,MESOS,5.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the issue, which involves refactoring the health check to be ",LLM,ollama,llama3,FS1
+USERGRID-00099,USERGRID,3.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+The reason for this estimate is that the task appears to be a research-oriented SPIKE (a spike is a sho",LLM,ollama,llama3,FS1
+USERGRID-00107,USERGRID,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the fact that the story is a SPIKE, which typically involves exploratory work t",LLM,ollama,llama3,FS1
+USERGRID-00137,USERGRID,5.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a specific error handling scen",LLM,ollama,llama3,FS1
+USERGRID-00161,USERGRID,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which appears to be related to errors in the iOS P",LLM,ollama,llama3,FS1
+USERGRID-00165,USERGRID,2.0,8.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**8**
+
+This estimate is based on the complexity of the changes required, including refactoring the IndexScope, c",LLM,ollama,llama3,FS1
+USERGRID-00172,USERGRID,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the issue, which involves cross-collection/graph filtering, w",LLM,ollama,llama3,FS1
+USERGRID-00185,USERGRID,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the fact that this is a spike, which typically involves a design or investigati",LLM,ollama,llama3,FS1
+USERGRID-00190,USERGRID,1.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the feature, which involves adding a new query parameter and ",LLM,ollama,llama3,FS1
+USERGRID-00203,USERGRID,3.0,3.0,"Based on the examples provided, I would estimate the Story Points for this user story as:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be a false positive error repo",LLM,ollama,llama3,FS1
+USERGRID-00222,USERGRID,3.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the refactor, which involves defining new interfaces, refacto",LLM,ollama,llama3,FS1
+USERGRID-00285,USERGRID,2.0,3.0,"Based on the examples provided, I estimate the Story Points for the given user story as:
+
+**3**
+
+This estimate is based on the complexity of the issue, which appears to be related to testing a specifi",LLM,ollama,llama3,FS1
+USERGRID-00288,USERGRID,3.0,4.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+Story Points: 4",LLM,ollama,llama3,FS1
+USERGRID-00330,USERGRID,3.0,2.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**2**
+
+This estimate is based on the complexity of the issue, which appears to be a UI-related problem (lack of ",LLM,ollama,llama3,FS1
+USERGRID-00359,USERGRID,5.0,5.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**5**
+
+This estimate is based on the complexity of the task, which involves investigating and proposing multiple",LLM,ollama,llama3,FS1
+USERGRID-00391,USERGRID,1.0,2.0,"Based on the examples provided, I estimate the Story Points for the user story as follows:
+
+**Story Points: 2**
+
+The reason for this estimate is that the user story involves a straightforward upgrade ",LLM,ollama,llama3,FS1
+USERGRID-00406,USERGRID,3.0,5.0,"Based on the project context and the examples provided, I estimate the Story Points for the given user story as:
+
+**5**
+
+This estimate takes into account the complexity of modifying the generated docs",LLM,ollama,llama3,FS1
+USERGRID-00427,USERGRID,3.0,3.0,"Based on the examples provided, I estimate the Story Points for this user story to be:
+
+**3**
+
+This estimate is based on the complexity of the task, which involves modifying the behavior of the PUT op",LLM,ollama,llama3,FS1
+USERGRID-00474,USERGRID,3.0,2.0,"Based on the examples provided, I estimate the Story Points for the given user story as follows:
+
+**Story Points: 2**
+
+My reasoning is that this user story involves adding a specific feature to the lo",LLM,ollama,llama3,FS1

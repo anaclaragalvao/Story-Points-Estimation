@@ -336,3 +336,11 @@ timestamp,machine,dataset,protocol,family,model,n_train,n_pred,train_seconds,inf
 2026-10-19T13:56:19,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1,0,716,0,2.323,provider=ollama; infer_seconds = latência média por issue; invalidas=1
 2026-10-19T14:34:08,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1__cartao,0,503,0,2.338,provider=ollama; infer_seconds = latência média por issue; invalidas=0
 2026-10-19T14:45:07,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1__cartao,0,284,0,2.315,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T19:38:09,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1__cartaoplacebo,0,503,0,2.333,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T19:49:03,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1__cartaoplacebo,0,284,0,2.302,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T20:21:57,FELIPE-PC,agile_limpo,within_fewshot_simproj,LLM,llama3__FS1__similar_same_project,0,503,0,3.904,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T20:40:38,FELIPE-PC,neo_limpo,within_fewshot_simproj,LLM,llama3__FS1__similar_same_project,0,284,0,3.941,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T21:14:16,FELIPE-PC,agile_limpo,within_fewshot_simproj,LLM,llama3__FS1__similar_same_project__cartao,0,503,0,3.998,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T21:33:02,FELIPE-PC,neo_limpo,within_fewshot_simproj,LLM,llama3__FS1__similar_same_project__cartao,0,284,0,3.957,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T22:06:17,FELIPE-PC,agile_limpo,within_fewshot_sameproj,LLM,llama3__FS1__same_project,0,503,0,3.959,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-20T22:25:05,FELIPE-PC,neo_limpo,within_fewshot_sameproj,LLM,llama3__FS1__same_project,0,284,0,3.967,provider=ollama; infer_seconds = latência média por issue; invalidas=0
