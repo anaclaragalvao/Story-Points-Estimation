@@ -41,6 +41,16 @@ Exemplos:
         --protocol within --template FS1 --shots-from similar_same_project --cartao
     # A análise pareada de tudo isso está em analise_extensoes.ipynb (parte 1).
 
+    # EXTENSÃO: variações da estimativa por analogia (cada uma gera um arquivo com nome próprio):
+    #   --retriever ollama-embed   busca os parecidos por embeddings do Ollama em vez de TF-IDF
+    #                              (antes: ollama pull nomic-embed-text; os embeddings ficam em cache)
+    #   --k 8                      número fixo de exemplos (padrão: 2 a 4, como no artigo)
+    #   --dist-sp                  põe no prompt a distribuição de story points do time (treino do projeto);
+    #                              com ZS1 testa se "saber a escala do time" basta, sem exemplos
+    python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo \
+        --protocol within --template FS1 --shots-from similar_same_project --retriever ollama-embed --k 8
+    python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --dist-sp
+
 Retomável: cada resposta é gravada na hora em results/llm_raw/.../*.jsonl.
 Se cair a internet, acabar a cota ou você fechar o notebook, rode o MESMO comando
 de novo e ele continua de onde parou. Para juntar resultados feitos em outro
@@ -61,7 +71,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from see import config  # noqa: E402
 from see.io import load_merged, log_cost, save_predictions  # noqa: E402
 from see.llm_clients import PRESETS, LLMClient, call_with_retry  # noqa: E402
-from see.prompts import FS_TEMPLATES, ZS_TEMPLATES, few_shot, parse_estimate, truncate, zero_shot  # noqa: E402
+from see.prompts import FS_TEMPLATES, ZS_TEMPLATES, few_shot, format_sp, parse_estimate, truncate, zero_shot  # noqa: E402
 from see.text import clean_light  # noqa: E402
 
 PROTOCOL_COLUMN = {"within": "within_eval", "cross": "cross_eval", "lopo": "lopo_eval",
@@ -91,21 +101,80 @@ def instances(df: pd.DataFrame, protocol: str) -> pd.DataFrame:
     return df[df[col] == 1]
 
 
-_SIMILAR_INDEX = {}   # (id do df, projeto) -> (treino do projeto, vetorizador, matriz TF-IDF)
+# EXTENSÃO: opções da estimativa por analogia. main() preenche a partir da linha de comando; quem importa
+# este arquivo (ex.: o notebook) fica com os padrões, que são o comportamento original.
+OPTS = {"retriever": "tfidf", "embed_model": "nomic-embed-text", "k": 0, "dist_sp": False,
+        "ollama_url": None, "dataset": None}
+
+_SIMILAR_INDEX = {}   # (id do df, projeto, recuperador) -> (treino do projeto, índice, matriz)
+
+
+def _texto(title, description) -> str:
+    return clean_light(title) + " " + clean_light(description)
+
+
+def _ollama_url() -> str:
+    url = OPTS["ollama_url"] or __import__("os").environ.get("OLLAMA_HOST", "http://localhost:11434")
+    return (url if url.startswith("http") else "http://" + url).rstrip("/")
+
+
+def _embed(texts, kind):
+    """Embeddings normalizados pelo Ollama (/api/embed). kind = 'query' ou 'document' (prefixo do nomic)."""
+    import requests
+    pre = {"query": "search_query: ", "document": "search_document: "}[kind] if "nomic" in OPTS["embed_model"] else ""
+    out = []
+    for i in range(0, len(texts), 64):
+        batch = [pre + t[:2000] for t in texts[i:i + 64]]
+        r = requests.post(f"{_ollama_url()}/api/embed", json={"model": OPTS["embed_model"], "input": batch}, timeout=600)
+        if r.status_code == 404 and "not found" in r.text.lower():
+            sys.exit(f"Modelo de embeddings ausente no Ollama. Rode antes: ollama pull {OPTS['embed_model']}")
+        r.raise_for_status()
+        out.extend(r.json()["embeddings"])
+    m = np.asarray(out, dtype=np.float32)
+    return m / np.maximum(np.linalg.norm(m, axis=1, keepdims=True), 1e-9)
+
+
+def _embed_cached(texts, project):
+    """Embeddings dos textos do treino de um projeto, em cache: results/embeddings/<modelo>/<dataset>/<projeto>.npz."""
+    folder = config.RESULTS / "embeddings" / slug(OPTS["embed_model"]) / str(OPTS["dataset"] or "x")
+    path = folder / f"{slug(str(project))}.npz"
+    keys = np.array([hashlib.sha1(t.encode()).hexdigest() for t in texts])
+    if path.exists():
+        z = np.load(path)
+        if len(z["keys"]) == len(keys) and (z["keys"] == keys).all():
+            return z["emb"].astype(np.float32)
+    print(f"   embeddings do treino de {project} ({len(texts)} textos) ...", flush=True)
+    emb = _embed(texts, "document")
+    folder.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(path, keys=keys, emb=emb.astype(np.float16))
+    return emb
 
 
 def _similar_index(df: pd.DataFrame, project):
-    key = (id(df), project)
+    key = (id(df), project, OPTS["retriever"])
     if key not in _SIMILAR_INDEX:
-        from sklearn.feature_extraction.text import TfidfVectorizer
         pool = df[(df.project == project) & (df.within == "train")]
-        texts = (pool.title.map(clean_light) + " " + pool.description.map(clean_light)).tolist()
+        texts = [_texto(t, d) for t, d in zip(pool.title, pool.description)]
         if pool.empty:
             _SIMILAR_INDEX[key] = (pool, None, None)
+        elif OPTS["retriever"] == "ollama-embed":
+            _SIMILAR_INDEX[key] = (pool, "embed", _embed_cached(texts, project))
         else:
+            from sklearn.feature_extraction.text import TfidfVectorizer
             vec = TfidfVectorizer(stop_words="english", sublinear_tf=True).fit(texts)   # só o treino do projeto
             _SIMILAR_INDEX[key] = (pool, vec, vec.transform(texts))
     return _SIMILAR_INDEX[key]
+
+
+def sp_distribution(df: pd.DataFrame, project) -> str:
+    """EXTENSÃO --dist-sp: como o time costuma pontuar (só o treino do projeto)."""
+    sp = df[(df.project == project) & (df.within == "train")].sp.astype(float)
+    if sp.empty:
+        return ""
+    freq = sp.value_counts(normalize=True).head(6).sort_index()
+    usados = ", ".join(f"{format_sp(v)} ({100 * f:.0f}%)" for v, f in freq.items())
+    return ("Story point history of this team (work items previously estimated in the same project):\n"
+            f"median = {format_sp(sp.median())}; most used values: {usados}\n\n")
 
 
 def pick_examples(df: pd.DataFrame, row, shots_from: str, max_chars: int):
@@ -121,10 +190,14 @@ def pick_examples(df: pd.DataFrame, row, shots_from: str, max_chars: int):
     if shots_from == "similar_same_project":
         pool, vec, mat = _similar_index(df, row.project)
         k = min(int(rng.integers(lo, hi + 1)), len(pool))   # mesmo k do same_project para esta issue
+        if OPTS["k"]:
+            k = min(OPTS["k"], len(pool))
         if k == 0:
             return []
-        query = vec.transform([clean_light(row.title) + " " + clean_light(row.description)])
-        sims = (mat @ query.T).toarray().ravel()
+        if isinstance(vec, str):                             # embeddings
+            sims = mat @ _embed([_texto(row.title, row.description)], "query")[0]
+        else:
+            sims = (mat @ vec.transform([_texto(row.title, row.description)]).T).toarray().ravel()
         top = np.argsort(-sims, kind="stable")[:k][::-1]
         chosen = pool.iloc[top]
     else:
@@ -133,6 +206,8 @@ def pick_examples(df: pd.DataFrame, row, shots_from: str, max_chars: int):
         else:
             pool = df[(df.project == row.project) & (df.within == "train") & (df.issue_id != row.issue_id)]
         k = min(int(rng.integers(lo, hi + 1)), len(pool))
+        if OPTS["k"]:
+            k = min(OPTS["k"], len(pool))
         chosen = pool.iloc[rng.choice(len(pool), k, replace=False)]
     return [(clean_light(r.title), truncate(clean_light(r.description), max_chars), r.sp)
             for r in chosen.itertuples()]
@@ -171,6 +246,8 @@ def build_prompt(df, row, template, shots_from, max_chars, card=None):
         prompt = few_shot(template, title, desc, pick_examples(df, row, shots_from, max_chars // 3))
     else:
         prompt = zero_shot(template, title, desc)
+    if OPTS["dist_sp"]:
+        prompt = sp_distribution(df, row.project) + prompt
     return CARD_PREFIX.format(card=card) + prompt if card else prompt
 
 
@@ -218,6 +295,12 @@ def run_one(df, dataset, protocol, template, args, client, cards=None):
     if args.limit:
         inst = inst.head(args.limit)
     shots_tag = "" if template in ZS_TEMPLATES else f"__{args.shots_from}"
+    if template in FS_TEMPLATES and args.shots_from == "similar_same_project" and args.retriever != "tfidf":
+        shots_tag += "__emb"
+    if template in FS_TEMPLATES and args.k:
+        shots_tag += f"__k{args.k}"
+    if args.dist_sp:
+        shots_tag += "__distsp"
     card_tag = "__cartao" if args.cartao else "__cartaoplacebo" if args.cartao_placebo else ""
     run_name = f"{slug(args.model)}__{template}{shots_tag}{card_tag}"
     if args.cartao:
@@ -294,6 +377,12 @@ def main():
     ap.add_argument("--api-key-env")
     ap.add_argument("--dry-run", action="store_true", help="mostra o primeiro prompt e sai")
     ap.add_argument("--export-only", action="store_true", help="só converte os .jsonl em predições")
+    ap.add_argument("--retriever", default="tfidf", choices=["tfidf", "ollama-embed"],
+                    help="EXTENSÃO: como achar os exemplos parecidos (similar_same_project)")
+    ap.add_argument("--embed-model", default="nomic-embed-text", help="modelo de embeddings no Ollama")
+    ap.add_argument("--k", type=int, default=0, help="EXTENSÃO: nº fixo de exemplos few-shot (0 = 2 a 4, como no artigo)")
+    ap.add_argument("--dist-sp", action="store_true",
+                    help="EXTENSÃO: põe no prompt a distribuição de story points do time (treino do projeto)")
     ctx = ap.add_mutually_exclusive_group()
     ctx.add_argument("--cartao", action="store_true",
                      help="EXTENSÃO: põe o cartão do projeto (08_project_cards.py) antes do prompt; "
@@ -304,6 +393,8 @@ def main():
                      help="EXTENSÃO: sem cartão no prompt, mas só as issues do --cartao (para comparar pareado)")
     args = ap.parse_args()
     cards = load_cards() if (args.cartao or args.cartao_placebo or args.so_projetos_com_cartao) else None
+    OPTS.update(retriever=args.retriever, embed_model=args.embed_model, k=args.k, dist_sp=args.dist_sp,
+                ollama_url=args.base_url if args.provider == "ollama" else None)
 
     client = None
     if not (args.dry_run or args.export_only):
@@ -311,6 +402,7 @@ def main():
                            base_url=args.base_url, api_key_env=args.api_key_env, seed=config.SEED)
     for dataset in args.dataset:
         df = load_merged(dataset)
+        OPTS["dataset"] = dataset
         for protocol in args.protocol:
             templates = args.template or (["FS1"] if protocol == "fewshot" else ["ZS1"])
             if protocol == "perturb":
