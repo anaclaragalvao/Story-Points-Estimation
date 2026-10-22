@@ -348,3 +348,9 @@ timestamp,machine,dataset,protocol,family,model,n_train,n_pred,train_seconds,inf
 2026-10-21T17:36:45,FELIPE-PC,neo_limpo,within_fewshot_simproj,LLM,llama3__FS1__similar_same_project,0,716,0,3.933,provider=ollama; infer_seconds = latência média por issue; invalidas=0
 2026-10-21T19:48:40,FELIPE-PC,agile_limpo,within,LLM,llama3__ZS1__distsp,0,1031,0,2.351,provider=ollama; infer_seconds = latência média por issue; invalidas=0
 2026-10-21T20:16:30,FELIPE-PC,neo_limpo,within,LLM,llama3__ZS1__distsp,0,716,0,2.329,provider=ollama; infer_seconds = latência média por issue; invalidas=0
+2026-10-21T22:40:29,FELIPE-PC,agile_limpo,within,ML,SVR,16716,2078,450.749,10.1921,fold=all
+2026-10-21T22:40:41,FELIPE-PC,agile_limpo,within,ML,LinearRegression,16716,2078,12.007,0.0004,fold=all
+2026-10-21T22:40:58,FELIPE-PC,agile_limpo,within,ML,RandomForest,16716,2078,16.524,0.1246,fold=all
+2026-10-21T22:45:03,FELIPE-PC,neo_limpo,within,ML,SVR,11618,1437,236.744,6.0702,fold=all
+2026-10-21T22:45:10,FELIPE-PC,neo_limpo,within,ML,LinearRegression,11618,1437,7.226,0.0004,fold=all
+2026-10-21T22:45:21,FELIPE-PC,neo_limpo,within,ML,RandomForest,11618,1437,10.605,0.0935,fold=all
