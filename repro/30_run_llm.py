@@ -50,6 +50,8 @@ Exemplos:
     python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo \
         --protocol within --template FS1 --shots-from similar_same_project --retriever ollama-embed --k 8
     python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --dist-sp
+    #   --dist-sp-por tipo         a distribuição só das issues do mesmo tipo (bug, story...) no mesmo projeto
+    python repro/30_run_llm.py --provider ollama --model llama3 --dataset agile_limpo neo_limpo --dist-sp --dist-sp-por tipo
 
 Retomável: cada resposta é gravada na hora em results/llm_raw/.../*.jsonl.
 Se cair a internet, acabar a cota ou você fechar o notebook, rode o MESMO comando
@@ -103,7 +105,7 @@ def instances(df: pd.DataFrame, protocol: str) -> pd.DataFrame:
 
 # EXTENSÃO: opções da estimativa por analogia. main() preenche a partir da linha de comando; quem importa
 # este arquivo (ex.: o notebook) fica com os padrões, que são o comportamento original.
-OPTS = {"retriever": "tfidf", "embed_model": "nomic-embed-text", "k": 0, "dist_sp": False,
+OPTS = {"retriever": "tfidf", "embed_model": "nomic-embed-text", "k": 0, "dist_sp": False, "tipos": None,
         "ollama_url": None, "dataset": None}
 
 _SIMILAR_INDEX = {}   # (id do df, projeto, recuperador) -> (treino do projeto, índice, matriz)
@@ -166,9 +168,28 @@ def _similar_index(df: pd.DataFrame, project):
     return _SIMILAR_INDEX[key]
 
 
-def sp_distribution(df: pd.DataFrame, project) -> str:
-    """EXTENSÃO --dist-sp: como o time costuma pontuar (só o treino do projeto)."""
-    sp = df[(df.project == project) & (df.within == "train")].sp.astype(float)
+def sp_distribution(df: pd.DataFrame, row) -> str:
+    """EXTENSÃO --dist-sp: como o time costuma pontuar (só o treino do projeto).
+
+    Com --dist-sp-por tipo, usa só as issues do treino do mesmo projeto E do mesmo tipo da issue (bug, story...),
+    se houver pelo menos MIN_GRUPO delas; senão, cai na distribuição do projeto inteiro (o mesmo texto do --dist-sp,
+    então essas respostas são reaproveitadas da rodada --dist-sp pelo hash do prompt).
+    """
+    from see.metadados import MIN_GRUPO
+    train = df[(df.project == row.project) & (df.within == "train")]
+    tipos = OPTS["tipos"]
+    if tipos is not None:
+        t = tipos.get(row.issue_id)
+        if isinstance(t, str):
+            mesmo = train[train.issue_id.map(tipos) == t].sp.astype(float)
+            if len(mesmo) >= MIN_GRUPO:
+                freq = mesmo.value_counts(normalize=True).head(6).sort_index()
+                usados = ", ".join(f"{format_sp(v)} ({100 * f:.0f}%)" for v, f in freq.items())
+                nome = "unlabeled" if t == "sem_tipo" else t
+                return (f"Story point history of this team for work items of the same type ({nome}), "
+                        f"previously estimated in the same project ({len(mesmo)} items):\n"
+                        f"median = {format_sp(mesmo.median())}; most used values: {usados}\n\n")
+    sp = train.sp.astype(float)
     if sp.empty:
         return ""
     freq = sp.value_counts(normalize=True).head(6).sort_index()
@@ -247,7 +268,7 @@ def build_prompt(df, row, template, shots_from, max_chars, card=None):
     else:
         prompt = zero_shot(template, title, desc)
     if OPTS["dist_sp"]:
-        prompt = sp_distribution(df, row.project) + prompt
+        prompt = sp_distribution(df, row) + prompt
     return CARD_PREFIX.format(card=card) + prompt if card else prompt
 
 
@@ -300,7 +321,7 @@ def run_one(df, dataset, protocol, template, args, client, cards=None):
     if template in FS_TEMPLATES and args.k:
         shots_tag += f"__k{args.k}"
     if args.dist_sp:
-        shots_tag += "__distsp"
+        shots_tag += "__distsp" + ("tipo" if args.dist_sp_por == "tipo" else "")
     card_tag = "__cartao" if args.cartao else "__cartaoplacebo" if args.cartao_placebo else ""
     run_name = f"{slug(args.model)}__{template}{shots_tag}{card_tag}"
     if args.cartao:
@@ -325,12 +346,26 @@ def run_one(df, dataset, protocol, template, args, client, cards=None):
     done = read_done(raw_path)
     todo = inst[~inst.issue_id.isin(done)]
     print(f"== {dataset}/{protocol}/{run_name}: {len(done)} prontas, {len(todo)} a fazer", flush=True)
+    # EXTENSÃO: respostas já dadas a um prompt IDÊNTICO (mesmo modelo e temperatura) em outra rodada desta pasta
+    # são reaproveitadas, sem chamar o LLM de novo (ex.: --dist-sp-por tipo nas issues sem tipo conhecido)
+    reuso = {}
+    for other in sorted(raw_path.parent.glob("*.jsonl")) if raw_path.parent.exists() else []:
+        if other == raw_path:
+            continue
+        for r in read_done(other).values():
+            if r.get("prompt_sha1") and r.get("model") == args.model and r.get("temperature") == args.temperature:
+                reuso.setdefault(r["prompt_sha1"], dict(r, reuso_de=other.name))
     raw_path.parent.mkdir(parents=True, exist_ok=True)
     min_interval = 60.0 / args.rpm if args.rpm else 0.0
     last = 0.0
     with open(raw_path, "a", encoding="utf-8") as f:
         for n, row in enumerate(todo.itertuples(), start=1):
             prompt = build_prompt(df, row, template, args.shots_from, args.max_desc_chars, card_of(row))
+            sha = hashlib.sha1(prompt.encode()).hexdigest()
+            if sha in reuso:
+                f.write(json.dumps(dict(reuso[sha], issue_id=row.issue_id), ensure_ascii=False) + "\n")
+                f.flush()
+                continue
             wait = min_interval - (time.time() - last)
             if wait > 0:
                 time.sleep(wait)
@@ -383,6 +418,9 @@ def main():
     ap.add_argument("--k", type=int, default=0, help="EXTENSÃO: nº fixo de exemplos few-shot (0 = 2 a 4, como no artigo)")
     ap.add_argument("--dist-sp", action="store_true",
                     help="EXTENSÃO: põe no prompt a distribuição de story points do time (treino do projeto)")
+    ap.add_argument("--dist-sp-por", default="projeto", choices=["projeto", "tipo"],
+                    help="EXTENSÃO: com 'tipo', a distribuição é das issues do mesmo projeto E do mesmo tipo "
+                         "(precisa do 09_tawos_metadados.py no Agile e de data/raw/neo_json no NEO)")
     ctx = ap.add_mutually_exclusive_group()
     ctx.add_argument("--cartao", action="store_true",
                      help="EXTENSÃO: põe o cartão do projeto (08_project_cards.py) antes do prompt; "
@@ -403,6 +441,11 @@ def main():
     for dataset in args.dataset:
         df = load_merged(dataset)
         OPTS["dataset"] = dataset
+        if args.dist_sp and args.dist_sp_por == "tipo":
+            from see.metadados import tipos
+            OPTS["tipos"] = tipos(dataset)
+            cobre = df.issue_id.isin(OPTS["tipos"].index).mean()
+            print(f"   {dataset}: tipo conhecido em {100 * cobre:.0f}% das issues (as outras usam a distribuição do projeto)")
         for protocol in args.protocol:
             templates = args.template or (["FS1"] if protocol == "fewshot" else ["ZS1"])
             if protocol == "perturb":
